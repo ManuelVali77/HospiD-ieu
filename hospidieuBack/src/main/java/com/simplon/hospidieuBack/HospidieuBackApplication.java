@@ -20,7 +20,7 @@ public class HospidieuBackApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Bienvenue sur HospiD'ieu");
-		System.out.println(this.controller.getAllPatients());
+//		System.out.println(this.controller.getAllPatients());
 	}
 
 }

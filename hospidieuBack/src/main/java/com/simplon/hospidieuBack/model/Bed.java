@@ -2,6 +2,7 @@ package com.simplon.hospidieuBack.model;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "beds")
-public class Bed implements Serializable{
+public class Bed implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -26,7 +27,7 @@ public class Bed implements Serializable{
 	private String department;
 	
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "patientId")
+	@JoinColumn(name = "idPatient")
 	private int idPatient;
 
 	// Getters/setters
