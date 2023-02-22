@@ -1,0 +1,21 @@
+<div>
+    <h2>Liste des patients admis :</h2>
+    <table>
+        <thead>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Service</th>
+            <th>Chambre</th>
+            <th>Lit</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let patient of patientsList">
+                <td>{{ patient.name }}</td>
+                <td>{{ patient.firstname }}</td>
+                <td>{{ patient.department }}</td>
+                <td>{{ patient.room }}</td>
+                <td>{{ patient.bed }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

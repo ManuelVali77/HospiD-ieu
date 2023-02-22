@@ -26,7 +26,7 @@ public class Patient implements Serializable {
 	private String postcode;
 	private String city;
 	private String phone;
-	private int securityNumber;
+	private String securityNumber;
 	
 	@Override
 	public String toString() {
@@ -102,11 +102,11 @@ public class Patient implements Serializable {
 		this.phone = phone;
 	}
 
-	public int getSecurityNumber() {
+	public String getSecurityNumber() {
 		return securityNumber;
 	}
 
-	public void setSecurityNumber(int securityNumber) {
+	public void setSecurityNumber(String securityNumber) {
 		this.securityNumber = securityNumber;
 	}
 }
