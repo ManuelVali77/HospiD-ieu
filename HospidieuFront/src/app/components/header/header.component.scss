@@ -1,0 +1,12 @@
+@import '../../../styles.scss';
+
+.headerLogin {
+    height: 80px;
+    background-color: $colorBaseBlue;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    img {
+        width: 240px;
+    }
+}
