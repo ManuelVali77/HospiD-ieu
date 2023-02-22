@@ -5,7 +5,7 @@ package com.simplon.hospidieuBack.model;
  * @author S. Lebrun
  *
  */
-public class DisplayPatientDto {
+public class PatientInBedDto {
 	
 	private int id;
 	private String name;
@@ -50,5 +50,9 @@ public class DisplayPatientDto {
 	}
 	public void setBed(int bed) {
 		this.bed = bed;
+	}
+	
+	public String toString() {
+		return "Le patient " + this.name + " " + this.firstname + " est au service " + this.department + " chambre n°" + this.room + " lit " + this.bed;
 	}
 }

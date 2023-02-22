@@ -28,6 +28,13 @@ public class Patient implements Serializable {
 	private String phone;
 	private int securityNumber;
 	
+	@Override
+	public String toString() {
+		return "Patient [idPatient=" + idPatient + ", name=" + name + ", firstname=" + firstname + ", birthDate="
+				+ birthDate + ", address=" + address + ", postcode=" + postcode + ", city=" + city + ", phone=" + phone
+				+ ", securityNumber=" + securityNumber + "]";
+	}
+
 	public Patient() {}
 
 	// Getters/setters

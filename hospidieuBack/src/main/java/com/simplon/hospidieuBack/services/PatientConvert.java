@@ -6,15 +6,17 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.simplon.hospidieuBack.model.Bed;
-import com.simplon.hospidieuBack.model.DisplayPatientDto;
+import com.simplon.hospidieuBack.model.PatientInBedDto;
 import com.simplon.hospidieuBack.model.Patient;
 
 @Service
 public class PatientConvert {
 
-	public DisplayPatientDto convertDoToDto(Patient patient, Bed bed) {
+	public PatientInBedDto convertDoToDto(Bed bed) {
 		
-		DisplayPatientDto displayedPatient = new DisplayPatientDto();
+		Patient patient = bed.getPatient();
+		
+		PatientInBedDto displayedPatient = new PatientInBedDto();
 		
 		displayedPatient.setId(patient.getIdPatient());
 		displayedPatient.setName(patient.getName());
@@ -26,12 +28,12 @@ public class PatientConvert {
 		return displayedPatient;
 	}
 	
-//	public List<DisplayPatientDto> convertDoToDtoList(Patient[] patientList, Bed[] bedList) {
-//		List<DisplayPatientDto> displayedPatientList = new ArrayList<>();
-//		
-//		for (int i = 0; i < patientList.length; i++) {
-//			displayedPatientList.add(convertDoToDto(patientList[i], bedList[i]));
-//		}
-//		return displayedPatientList;
-//	}
+	public List<PatientInBedDto> convertDoToDtoList(List<Bed> patientsList) {
+		List<PatientInBedDto> displayedPatientList = new ArrayList<>();
+		
+		for (Bed bed : patientsList) {
+			displayedPatientList.add(convertDoToDto(bed));
+		}
+		return displayedPatientList;
+	}
 }

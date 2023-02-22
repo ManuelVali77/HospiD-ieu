@@ -2,7 +2,6 @@ package com.simplon.hospidieuBack.model;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -20,23 +19,29 @@ public class Bed implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int bedId;
+	private int idBed;
 	
 	private int bedNumber;
 	private int roomNumber;
 	private String department;
 	
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "idPatient")
-	private int idPatient;
+	@JoinColumn(name = "id_patient")
+	private Patient patient;
 
-	// Getters/setters
-	public int getBedId() {
-		return bedId;
+	@Override
+	public String toString() {
+		return "Bed [idBed=" + idBed + ", bedNumber=" + bedNumber + ", roomNumber=" + roomNumber + ", department="
+				+ department + ", patient=" + patient + "]";
 	}
 
-	public void setBedId(int bedId) {
-		this.bedId = bedId;
+	// Getters/setters
+	public int getIdBed() {
+		return idBed;
+	}
+
+	public void setIdBed(int bedId) {
+		this.idBed = bedId;
 	}
 
 	public int getBedNumber() {
@@ -63,11 +68,12 @@ public class Bed implements Serializable {
 		this.department = department;
 	}
 
-	public int getIdPatient() {
-		return idPatient;
+	public Patient getPatient() {
+		return patient;
 	}
 
-	public void setIdPatient(int idPatient) {
-		this.idPatient = idPatient;
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
+
 }
