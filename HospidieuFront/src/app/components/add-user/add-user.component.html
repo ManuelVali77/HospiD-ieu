@@ -1,0 +1,42 @@
+<app-header-dyn></app-header-dyn>
+
+<div class="addContain">
+  <div class="overlay">
+    <div class="formContain">
+      <form action="">
+        <h1>Ajouter un utilisateur</h1>
+        <div class="inputContain">
+          <div class="inputUser">
+            <label for="">Nom :</label>
+            <input placeholder="Nom" type="text" />
+          </div>
+          <div class="inputUser">
+            <label for="">Prénom :</label>
+            <input placeholder="Prénom" type="text" />
+          </div>
+        </div>
+        <div class="inputContain">
+          <div class="inputUser">
+            <label for="">Email :</label>
+            <input placeholder="Email" type="text" />
+          </div>
+          <div class="inputUser">
+            <label for="">Mot de pass :</label>
+            <input placeholder="Mot de passe" type="text" />
+          </div>
+        </div>
+        <div class="inputUser">
+          <label for="">Rôle :</label>
+          <select>
+            <option value="ROLE_ADMIN" selected>Administrateur</option>
+            <option value="ROLE_INFIRMIER">Infirmier</option>
+            <option value="ROLE_SECTRETAIRE">Secrétaire médical</option>
+          </select>
+        </div>
+        <div class="buttonContain">
+          <button>Ajouter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

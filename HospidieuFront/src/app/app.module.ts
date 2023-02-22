@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderDynComponent } from './components/header-dyn/header-dyn.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConnexionComponent,
     HeaderComponent,
-    HeaderDynComponent
+    HeaderDynComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
