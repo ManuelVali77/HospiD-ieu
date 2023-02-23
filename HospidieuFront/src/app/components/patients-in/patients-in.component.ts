@@ -16,7 +16,6 @@ export class PatientsInComponent implements OnInit{
 
   ngOnInit(): void {
     this.patientService.getPatientsInBed().subscribe((data : Patient[]) => {
-      console.log(data);
       this.patientsList = data;
     })
   }
@@ -30,8 +29,6 @@ export class PatientsInComponent implements OnInit{
   }
 
   onGoToPatient(id : number) : void {
-    // TODO : changer l'URL
-    console.log(id);
     this.router.navigateByUrl("patient/" + id);
   }
 

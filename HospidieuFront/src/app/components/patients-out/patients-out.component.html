@@ -12,6 +12,7 @@
                 <th>Prénom</th>
                 <th>Né.e le</th>
                 <th>Téléphone</th>
+                <th>Détails</th>
             </thead>
             <tbody>
                 <tr *ngFor="let patient of patientsList">
@@ -19,6 +20,7 @@
                     <td>{{ patient.firstname }}</td>
                     <td>{{ patient.birthDate | date : 'd/MM/YYYY' }}</td>
                     <td>{{ patient.phone }}</td>
+                    <td><button (click)="onGoToPatient(patient.idPatient)">Voir</button></td>
             </tbody>
         </table>
     </div>

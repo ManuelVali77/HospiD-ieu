@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Patient } from 'src/app/models/patient.model';
 import { PatientService } from 'src/app/services/patient.service';
@@ -8,7 +8,7 @@ import { PatientService } from 'src/app/services/patient.service';
   templateUrl: './patients-out.component.html',
   styleUrls: ['./patients-out.component.scss']
 })
-export class PatientsOutComponent {
+export class PatientsOutComponent implements OnInit {
 
   patientsList !: Patient[];
 
@@ -16,7 +16,6 @@ export class PatientsOutComponent {
 
   ngOnInit(): void {
     this.patientService.getPatientsOut().subscribe((data : Patient[]) => {
-      console.log(data);
       this.patientsList = data;
     })
   }
@@ -27,6 +26,10 @@ export class PatientsOutComponent {
 
   onShowPatientsOut() : void {
     this.router.navigateByUrl("patientsList/out");
+  }
+
+  onGoToPatient(id : number) : void {
+    this.router.navigateByUrl("patient/" + id);
   }
 
 }
