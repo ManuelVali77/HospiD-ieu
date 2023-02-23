@@ -13,6 +13,7 @@
                 <th>Service</th>
                 <th>Chambre</th>
                 <th>Lit</th>
+                <th>Détails</th>
             </thead>
             <tbody>
                 <tr *ngFor="let patient of patientsList">
@@ -21,6 +22,7 @@
                     <td>{{ patient.department }}</td>
                     <td>{{ patient.room }}</td>
                     <td>{{ patient.bed }}</td>
+                    <td><button (click)="onGoToPatient(patient.idPatient)">Voir</button></td>
                 </tr>
             </tbody>
         </table>

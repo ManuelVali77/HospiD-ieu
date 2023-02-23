@@ -9,6 +9,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { HeaderDynComponent } from './components/header-dyn/header-dyn.component';
 import { PatientsInComponent } from './components/patients-in/patients-in.component';
 import { PatientsOutComponent } from './components/patients-out/patients-out.component';
+import { PatientDetailComponent } from './components/patient-detail/patient-detail.component';
+import { AddCommentComponent } from './components/add-comment/add-comment.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { PatientsOutComponent } from './components/patients-out/patients-out.com
     HeaderDynComponent,
     PatientsListComponent,
     PatientsInComponent,
-    PatientsOutComponent
+    PatientsOutComponent,
+    PatientDetailComponent,
+    AddCommentComponent
   ],
   imports: [
     BrowserModule,
