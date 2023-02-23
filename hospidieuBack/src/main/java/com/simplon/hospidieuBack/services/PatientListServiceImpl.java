@@ -19,26 +19,38 @@ public class PatientListServiceImpl implements PatientListService {
 	private BedRepository bedRepo;
 	@Autowired
 	private PatientRepository patientRepo;
-	
-	@Autowired
-	private PatientConvert patientConvert;
-	
+
+	@Override
 	public List<Patient> getAllPatients() {
 		return this.patientRepo.findAll();
 	}
-	
+
+	@Override
 	public List<Bed> getAllBeds() {
 		return this.bedRepo.findAll();
 	}
-	
-	public List<PatientInBedDto> getAllPatientsInBeds() {
-		List<Bed> patientsList = getAllBeds();
-		List<Bed> patientsInBedList = new ArrayList<Bed>();
-		for (Bed bed : patientsList) {
+
+	@Override
+	public List<Bed> getBedsWithPatients() {
+		List<Bed> bedsList = getAllBeds();
+		List<Bed> bedsWithPatientsList = new ArrayList<Bed>();
+		for (Bed bed : bedsList) {
 			if (bed.getPatient() instanceof Patient) {
-				patientsInBedList.add(bed);
+				bedsWithPatientsList.add(bed);
 			}
 		}
-		return this.patientConvert.convertDoToDtoList(patientsInBedList);
+		return bedsWithPatientsList;
 	}
+
+	@Override
+	public List<Patient> getInactivePatients() {
+		List<Bed> bedWithPatientsList = getBedsWithPatients();
+		List<Patient> patientsList = getAllPatients();
+		for (Bed bedWithPatient : bedWithPatientsList) {
+			patientsList.remove(bedWithPatient.getPatient());
+		}
+		return patientsList;
+	}
+	
+	
 }

@@ -7,6 +7,8 @@ import { PatientsListComponent } from './components/patients-list/patients-list.
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderDynComponent } from './components/header-dyn/header-dyn.component';
+import { PatientsInComponent } from './components/patients-in/patients-in.component';
+import { PatientsOutComponent } from './components/patients-out/patients-out.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { HeaderDynComponent } from './components/header-dyn/header-dyn.component
     ConnexionComponent,
     HeaderComponent,
     HeaderDynComponent,
-    PatientsListComponent
+    PatientsListComponent,
+    PatientsInComponent,
+    PatientsOutComponent
   ],
   imports: [
     BrowserModule,

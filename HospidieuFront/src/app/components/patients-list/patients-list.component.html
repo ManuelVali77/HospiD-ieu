@@ -1,38 +1,15 @@
-<app-header-dyn></app-header-dyn>
+<!-- <app-header-dyn></app-header-dyn>
 <div class="background">
     <div class="patients-list-container">
-        <h2>Liste des patients admis :</h2>
+        <h2>Liste des patients :</h2>
         <div class="table">
             <div class="filters">
-                <button routerLink="in" routerLinkActive="current-page" [routerLinkActiveOptions]="{exact:true}">Admis</button>
-                <button routerLink="out" routerLinkActive="current-page" [routerLinkActiveOptions]="{exact:true}">Sortis</button>
+                <button (click)="onShowPatientsIn()">Admis</button>
+                <button (click)="onShowPatientsOut()">Sortis</button>
             </div>
-            <table>
-                <thead>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Service</th>
-                    <th>Chambre</th>
-                    <th>Lit</th>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let patient of patientsList" routerLink="http://">
-                        <td>{{ patient.name }}</td>
-                        <td>{{ patient.firstname }}</td>
-                        <td>{{ patient.department }}</td>
-                        <td>{{ patient.room }}</td>
-                        <td>{{ patient.bed }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <app-patients-in *ngIf="show == 'in'"></app-patients-in>
+            <app-patients-out *ngIf="show == 'out'"></app-patients-out>
         </div>
-        <!-- <ul>
-            <li>Nom</li>
-            <li>Prénom</li>
-            <li>Service</li>
-            <li>Chambre</li>
-            <li>Lit</li>
-        </ul> -->
     </div>
     <div class="image-container"></div>
-</div>
+</div> -->

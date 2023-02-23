@@ -30,22 +30,37 @@ h2 {
     margin: 10px;
 }
 
+// Fixer la taille si on ajoute la barre de recherche
 .filters {
     margin: 10px 0;
     display: flex;
     flex-flow: row nowrap;
     gap : 10px;
+    // width: 350px;
+    button {
+        height: 30px;
+        width: 60px;
+        border-radius: 7px;
+    }
+    button:hover {
+        cursor: pointer;
+    }
+    .in {
+        background-color: $colorBaseBlue;
+    }
+    .out {
+        background-color: $colorBaseRed;
+        color: white;
+    }
+    .current {
+        opacity: 0.5;
+    }
 }
 
-button {
-    height: 30px;
-    width: 60px;
-}
 
 
 table {
     border-collapse: collapse;
-    width: 350px;
 }
 
 th, tr {

@@ -8,7 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.simplon.hospidieuBack.controller.PatientListController;
+import com.simplon.hospidieuBack.controller.PatientController;
 import com.simplon.hospidieuBack.model.Patient;
 import com.simplon.hospidieuBack.model.PatientInBedDto;
 import com.simplon.hospidieuBack.repository.BedRepository;
@@ -18,7 +18,7 @@ import com.simplon.hospidieuBack.repository.PatientRepository;
 public class HospidieuBackApplication implements CommandLineRunner {
 	
 	@Autowired
-	PatientListController controller;
+	PatientController controller;
 
 	@Autowired
 	BedRepository bedRepo;
@@ -32,7 +32,12 @@ public class HospidieuBackApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Bienvenue sur HospiD'ieu");
+		System.out.println("Patients admis :");
 		for (PatientInBedDto patientToDisplay : this.controller.getAllPatientsInBeds()) {
+			System.out.println(patientToDisplay);
+		}
+		System.out.println("Patients sortis :");
+		for (Patient patientToDisplay : this.controller.getAllInactivePatients()) {
 			System.out.println(patientToDisplay);
 		}
 	}

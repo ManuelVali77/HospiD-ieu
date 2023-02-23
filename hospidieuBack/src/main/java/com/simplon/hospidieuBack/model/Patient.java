@@ -29,6 +29,14 @@ public class Patient implements Serializable {
 	private String securityNumber;
 	
 	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null || getClass() != obj.getClass()) return false;
+		Patient that = (Patient) obj;
+		return idPatient == that.idPatient && name.equals(that.name) && firstname.equals(that.firstname) && birthDate.equals(that.birthDate) && address.equals(that.address) && postcode.equals(that.postcode) && city.equals(that.city) && phone.equals(that.phone) && securityNumber.equals(that.securityNumber);
+	}
+
+	@Override
 	public String toString() {
 		return "Patient [idPatient=" + idPatient + ", name=" + name + ", firstname=" + firstname + ", birthDate="
 				+ birthDate + ", address=" + address + ", postcode=" + postcode + ", city=" + city + ", phone=" + phone
