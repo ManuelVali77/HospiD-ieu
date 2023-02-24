@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UserComponent } from './components/user/user.component';
 import { PatientsListComponent } from './components/patients-list/patients-list.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -15,6 +16,7 @@ import { AddCommentComponent } from './components/add-comment/add-comment.compon
 @NgModule({
   declarations: [
     AppComponent,
+    UserComponent,
     ConnexionComponent,
     HeaderComponent,
     HeaderDynComponent,
