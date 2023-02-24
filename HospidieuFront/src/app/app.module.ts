@@ -11,6 +11,7 @@ import { PatientsInComponent } from './components/patients-in/patients-in.compon
 import { PatientsOutComponent } from './components/patients-out/patients-out.component';
 import { PatientDetailComponent } from './components/patient-detail/patient-detail.component';
 import { AddCommentComponent } from './components/add-comment/add-comment.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AddCommentComponent } from './components/add-comment/add-comment.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

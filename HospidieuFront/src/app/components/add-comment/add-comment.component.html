@@ -1,1 +1,19 @@
-<p>add-comment works!</p>
+<h2>Ajouter un commentaire</h2>
+
+<p>Id du patient : {{ idPatient }}</p>
+
+<form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="comment">Commentaire :</label>
+        <input type="text" formControlName="comment">
+    </div>
+    <div>
+        <label for="symptom">Symptômes :</label>
+        <input type="text" formControlName="symptom">
+    </div>
+    <div>
+        <button type="submit">Ajouter</button>
+        <button>Annuler</button>
+    </div>
+
+</form>
