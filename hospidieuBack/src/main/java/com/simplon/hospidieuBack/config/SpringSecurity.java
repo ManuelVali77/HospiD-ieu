@@ -24,17 +24,18 @@ public class SpringSecurity {
         return new BCryptPasswordEncoder();
     }
 
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http.csrf().disable()
-//                .authorizeHttpRequests((authorize) ->
-//                        authorize.requestMatchers("/index").permitAll()
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.csrf().disable()
+                .authorizeHttpRequests((authorize) ->
+                        authorize.requestMatchers("/**").permitAll()
 //                                .requestMatchers("/customerList").hasRole("USER")
 //                                .requestMatchers("/addCustomer").hasRole("USER")
 //                                .requestMatchers("/updateCustomer/**").hasRole("USER")
 //                                .requestMatchers("/deleteCustomer/**").hasRole("USER")
 //                                .requestMatchers("/users").hasRole("ADMIN")
 //                                .requestMatchers("/deleteUser/**").hasRole("ADMIN")
+                        );
 //                ).formLogin(
 //                        form -> form
 //                                .loginPage("/login")
@@ -46,8 +47,8 @@ public class SpringSecurity {
 //                                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 //                                .permitAll()
 //                );
-//        return http.build();
-//    }
+        return http.build();
+    }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

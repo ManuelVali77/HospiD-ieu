@@ -1,23 +1,27 @@
 package com.simplon.hospidieuBack.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplon.hospidieuBack.model.User;
+//import com.simplon.hospidieuBack.model.User;
 import com.simplon.hospidieuBack.model.UserDto;
 import com.simplon.hospidieuBack.service.UserService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("api/")
 public class UserController {
 
+	@Autowired
 	private UserService userService;
 	
-//	@GetMapping("add-user")
-//	public User getUser(UserDto user) {
-//		return this.userService.saveUser(user);
-//	}
+	@PostMapping("addUser")
+	public void addUser(@RequestBody UserDto userDto) {
+		System.out.println("Receive: " + userDto.getRole());
+		userService.saveUser(userDto);
+	}
 }

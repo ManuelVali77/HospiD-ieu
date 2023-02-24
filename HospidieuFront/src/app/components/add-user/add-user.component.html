@@ -3,38 +3,59 @@
 <div class="addContain">
   <div class="overlay">
     <div class="formContain">
-      <form action="">
+      <form [formGroup]="userForm" id="userForm" (ngSubmit)="onSubmit()">
         <h1>Ajouter un utilisateur</h1>
         <div class="inputContain">
           <div class="inputUser">
-            <label for="">Nom :</label>
-            <input placeholder="Nom" type="text" />
+            <label for="name">Nom :</label>
+            <input placeholder="Nom" type="text" id="name" formControlName="name"/>
+            <small *ngIf="userForm.get('name')?.hasError('required') && userForm.get('name')?.touched">
+              Champ requis
+            </small>
           </div>
           <div class="inputUser">
-            <label for="">Prénom :</label>
-            <input placeholder="Prénom" type="text" />
+            <label for="firstName">Prénom :</label>
+            <input placeholder="Prénom" type="text" id="firstName" formControlName="firstName"/>
+            <small *ngIf="userForm.get('firstName')?.hasError('required') && userForm.get('firstName')?.touched">
+              Champ requis
+            </small>
           </div>
         </div>
         <div class="inputContain">
           <div class="inputUser">
-            <label for="">Email :</label>
-            <input placeholder="Email" type="text" />
+            <label for="mail">Email :</label>
+            <input placeholder="Email" type="text" id="mail" formControlName="mail"/>
+            <small *ngIf="userForm.get('mail')?.hasError('required') && userForm.get('mail')?.touched">
+              Champ requis
+            </small>
+            <small *ngIf="userForm.get('mail')?.hasError('email') && userForm.get('mail')?.touched">
+              Email invalide
+            </small>
           </div>
           <div class="inputUser">
-            <label for="">Mot de pass :</label>
-            <input placeholder="Mot de passe" type="text" />
+            <label for="password">Mot de passe :</label>
+            <input placeholder="Mot de passe" type="text" id="password" formControlName="password"/>
+            <small *ngIf="userForm.get('password')?.hasError('required') && userForm.get('password')?.touched">
+              Champ requis
+            </small>
+            <small *ngIf="userForm.get('password')?.hasError('minlength') && userForm.get('password')?.touched">
+              10 minimum
+            </small>
           </div>
         </div>
         <div class="inputUser">
-          <label for="">Rôle :</label>
-          <select>
-            <option value="ROLE_ADMIN" selected>Administrateur</option>
-            <option value="ROLE_INFIRMIER">Infirmier</option>
-            <option value="ROLE_SECTRETAIRE">Secrétaire médical</option>
+          <label for="role">Rôle :</label>
+          <select formControlName="role">
+            <option value="ROLE_ADMIN" selected id="admin">Administrateur</option>
+            <option value="ROLE_INFIRMIER" id="infirmier">Infirmier</option>
+            <option value="ROLE_SECRETAIRE" id="secretaire">Secrétaire médical</option>
           </select>
+          <small *ngIf="userForm.get('role')?.hasError('required') && userForm.get('role')?.touched">
+            Champ requis
+          </small>
         </div>
         <div class="buttonContain">
-          <button>Ajouter</button>
+          <button type="submit" >Ajouter</button>
         </div>
       </form>
     </div>
