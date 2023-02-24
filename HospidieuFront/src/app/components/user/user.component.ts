@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../user.service'
-import { User } from './user.component.spec';
+import { Role } from 'src/app/models/role.model';
+import { User } from 'src/app/models/user.model';
+import {UserService} from '../../user.service'
 
 
 @Component({
@@ -11,12 +12,15 @@ import { User } from './user.component.spec';
 export class UserComponent implements OnInit {
 
   users!: User[];
+  roles!: Role[];
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe((data: User[]) => {
       console.log(data);
       this.users = data;
+      
     });
   }
 }
