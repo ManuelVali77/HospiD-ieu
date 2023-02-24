@@ -26,7 +26,7 @@ public class Patient implements Serializable {
 	private String postcode;
 	private String city;
 	private String phone;
-	private int securityNumber;
+	private String securityNumber;
 	
 	@Override
 	public String toString() {
@@ -36,6 +36,19 @@ public class Patient implements Serializable {
 	}
 
 	public Patient() {}
+	
+	public Patient(String name, String firstname, Date birthDate, String address, String postcode,
+			String city, String phone, String securityNumber) {
+		super();
+		this.name = name;
+		this.firstname = firstname;
+		this.birthDate = birthDate;
+		this.address = address;
+		this.postcode = postcode;
+		this.city = city;
+		this.phone = phone;
+		this.securityNumber = securityNumber;
+	}
 
 	// Getters/setters
 	public String getName() {
@@ -102,11 +115,11 @@ public class Patient implements Serializable {
 		this.phone = phone;
 	}
 
-	public int getSecurityNumber() {
+	public String getSecurityNumber() {
 		return securityNumber;
 	}
 
-	public void setSecurityNumber(int securityNumber) {
+	public void setSecurityNumber(String securityNumber) {
 		this.securityNumber = securityNumber;
 	}
 }
