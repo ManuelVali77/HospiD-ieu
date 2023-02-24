@@ -1,12 +1,17 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
+import { PatientsListComponent } from './components/patients-list/patients-list.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderDynComponent } from './components/header-dyn/header-dyn.component';
-import { HttpClientModule } from '@angular/common/http';
+import { PatientsInComponent } from './components/patients-in/patients-in.component';
+import { PatientsOutComponent } from './components/patients-out/patients-out.component';
+import { PatientDetailComponent } from './components/patient-detail/patient-detail.component';
+import { AddCommentComponent } from './components/add-comment/add-comment.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +19,12 @@ import { HttpClientModule } from '@angular/common/http';
     UserComponent,
     ConnexionComponent,
     HeaderComponent,
-    HeaderDynComponent
+    HeaderDynComponent,
+    PatientsListComponent,
+    PatientsInComponent,
+    PatientsOutComponent,
+    PatientDetailComponent,
+    AddCommentComponent
   ],
   imports: [
     BrowserModule,
