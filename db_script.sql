@@ -106,14 +106,14 @@ INSERT INTO beds
 VALUES
     (1, 102, 'Comatologie', 2),
     (2, 102, 'Comatologie', 1),
-    (1, 126, 'Pï¿½diatrie', 7);
+    (1, 126, 'Pédiatrie', 7);
 
 INSERT INTO monitorings
     (ID_patient, comment, symptom, date, ID_user)
 VALUES
-    (1, 'Entrï¿½e du patient', 'Coma', '2022-12-22', 2),
-    (1, 'Joyeux noï¿½l', 'Coma', '2022-12-24', 3),
-    (1, 'Nouvelle annï¿½e toujours dans le coma', 'Coma', '2023-01-01', 2);
+    (1, 'Entrée du patient', 'Coma', '2022-12-22', 2),
+    (1, 'Joyeux noël', 'Coma', '2022-12-24', 3),
+    (1, 'Nouvelle année toujours dans le coma', 'Coma', '2023-01-01', 2);
 
 INSERT INTO patients
     (name, firstname, birth_date, address, postcode, city, phone, security_number)
@@ -132,6 +132,6 @@ VALUES
     ('Test','Test', '2023-01-01', 'Test', 99999, 'Test' ,'Test', 'Test'),
     ('Test','Test', '2023-01-01', 'Test', 99999, 'Test' ,'Test', 'Test'),
     ('Test','Test', '2023-01-01', 'Test', 99999, 'Test' ,'Test', 'Test'),
-    ('Test','Test', '2023-01-01', 'Test', 99999, 'Test' ,'Test', 'Test'),
+    ('Test','Test', '2023-01-01', 'Test', 99999, 'Test' ,'Test', 'Test');
 
-DELETE FROM patients WHERE name = 'Test';
+--DELETE FROM patients WHERE name = 'Test';

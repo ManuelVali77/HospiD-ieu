@@ -1,17 +1,32 @@
 <h2>Ajouter un commentaire</h2>
 
-<p>Id du patient : {{ idPatient }}</p>
-
 <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
     <div>
         <label for="comment">Commentaire :</label>
         <input type="text" formControlName="comment">
+        <div>
+            <p *ngIf="commentForm.controls['comment'].errors?.['maxlength'] && (commentForm.controls['comment'].dirty || commentForm.controls['comment'].touched)">
+                200 caractères maximum
+            </p>
+            <p *ngIf="commentForm.controls['comment'].errors?.['minlength'] && (commentForm.controls['comment'].dirty || commentForm.controls['comment'].touched)">
+                3 caractères minimum
+            </p>
+        </div>
     </div>
     <div>
         <label for="symptom">Symptômes :</label>
         <input type="text" formControlName="symptom">
+        <div *ngIf="commentForm.controls['symptom'].invalid && (commentForm.controls['symptom'].dirty || commentForm.controls['symptom'].touched)">
+            <p *ngIf="commentForm.controls['symptom'].errors?.['maxLength']">
+                50 caractères maximum
+            </p>
+            <p *ngIf="commentForm.controls['symptom'].errors?.['minlength']">
+                3 caractères minimum
+            </p>
+        </div>
     </div>
     <div>
+        <p>Form status: {{ commentForm.status }}</p>
         <button type="submit">Ajouter</button>
         <button>Annuler</button>
     </div>
