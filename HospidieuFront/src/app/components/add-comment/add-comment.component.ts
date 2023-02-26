@@ -29,7 +29,6 @@ export class AddCommentComponent implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(200)]],
       symptom : ['', [
-        Validators.required,
         Validators.minLength(3),
         Validators.maxLength(50)]]
     })
@@ -50,6 +49,7 @@ export class AddCommentComponent implements OnInit {
       
       this.service.saveMonitoring(this.monitoring).subscribe(() => console.log("Envoyé"));
     } else {
+      this.commentForm.markAllAsTouched();
       console.log("Non envoyé");
     }
   }

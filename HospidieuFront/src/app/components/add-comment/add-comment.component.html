@@ -1,34 +1,42 @@
-<h2>Ajouter un commentaire</h2>
-
-<form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="comment">Commentaire :</label>
-        <input type="text" formControlName="comment">
-        <div>
-            <p *ngIf="commentForm.controls['comment'].errors?.['maxlength'] && (commentForm.controls['comment'].dirty || commentForm.controls['comment'].touched)">
-                200 caractères maximum
-            </p>
-            <p *ngIf="commentForm.controls['comment'].errors?.['minlength'] && (commentForm.controls['comment'].dirty || commentForm.controls['comment'].touched)">
-                3 caractères minimum
-            </p>
+<div class="wrapper">
+    
+    <form [formGroup]="commentForm">
+        <h2>Ajouter un commentaire</h2>
+        <div class="form-area">
+            <label for="comment">Commentaire :</label>
+            <textarea formControlName="comment" [ngClass]="{'invalid': commentForm.controls['comment'].invalid && commentForm.controls['comment'].touched}"></textarea>
+            <div class="error-area">
+                <div *ngIf="(commentForm.get('comment')?.dirty || commentForm.get('comment')?.touched)" class="error">
+                    <p *ngIf="commentForm.get('comment')?.hasError('required')" class="error">
+                        Ce champ est requis
+                    </p>
+                    <p *ngIf="commentForm.get('comment')?.hasError('maxlength')" class="error">
+                        200 caractères maximum
+                    </p>
+                    <p *ngIf="commentForm.get('comment')?.hasError('minlength')" class="error">
+                        3 caractères minimum
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div>
-        <label for="symptom">Symptômes :</label>
-        <input type="text" formControlName="symptom">
-        <div *ngIf="commentForm.controls['symptom'].invalid && (commentForm.controls['symptom'].dirty || commentForm.controls['symptom'].touched)">
-            <p *ngIf="commentForm.controls['symptom'].errors?.['maxLength']">
-                50 caractères maximum
-            </p>
-            <p *ngIf="commentForm.controls['symptom'].errors?.['minlength']">
-                3 caractères minimum
-            </p>
+        <div class="form-area">
+            <label for="symptom">Symptômes :</label>
+            <input type="text" formControlName="symptom" [ngClass]="{'invalid': commentForm.controls['symptom'].invalid && commentForm.controls['symptom'].touched}">
+            <div class="error-area">
+                <div *ngIf="(commentForm.get('symptom')?.dirty || commentForm.get('symptom')?.touched)" class="error">
+                    <p *ngIf="commentForm.get('symptom')?.hasError('maxlength')" class="error">
+                        50 caractères maximum
+                    </p>
+                    <p *ngIf="commentForm.get('symptom')?.hasError('minlength')" class="error">
+                        3 caractères minimum
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div>
-        <p>Form status: {{ commentForm.status }}</p>
-        <button type="submit">Ajouter</button>
-        <button>Annuler</button>
-    </div>
+        <div class="buttons">
+            <button (click)="onSubmit()" class="submit">Ajouter</button>
+            <button class="cancel">Annuler</button>
+        </div>
 
-</form>
+    </form>
+</div>
