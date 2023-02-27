@@ -1,33 +1,45 @@
 package com.simplon.hospidieuBack.service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.stream.Collectors;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.simplon.hospidieuBack.model.Role;
 import com.simplon.hospidieuBack.model.User;
 import com.simplon.hospidieuBack.model.UserDto;
-import com.simplon.hospidieuBack.repository.Dao;
-
+import com.simplon.hospidieuBack.repository.RoleRepository;
+import com.simplon.hospidieuBack.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
-	
-	@Autowired
-	private Dao dao;
+
+	private UserRepository userRepository;
+	private RoleRepository roleRepository;
+	private PasswordEncoder passwordEncoder;
+
 
 	@Override
 	public List<User> getAllUser() {
-		return dao.findAll();
+		return userRepository.findAll();
 	}
-	
-	@Override
+
+	public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository,
+			PasswordEncoder passwordEncoder) {
+		this.userRepository = userRepository;
+		this.roleRepository = roleRepository;
+		this.passwordEncoder = passwordEncoder;
+	}
+
+@Override
     @GetMapping("user")
     public List<UserDto> findAllUserDto() {
         List<UserDto> usersDto = new ArrayList();
-        List<User> users = dao.findAll();
+        List<User> users = userRepository.findAll();
         for(User user : users) {
             UserDto userDto = new UserDto();
             List<Role> roles = user.getRoles();
@@ -36,26 +48,46 @@ public class UserServiceImpl implements UserService {
                 userDto.setRole(roleString);
             }
             userDto.setName(user.getName());
-            userDto.setFirstname(user.getFirstName());
-            userDto.setEmail(user.getMail());
+            userDto.setFirstName(user.getFirstName());
+            userDto.setMail(user.getMail());
             userDto.setPassword(user.getPassword());
             userDto.setIdUser(user.getIdUser());
             usersDto.add(userDto);
         }
         return usersDto;
     }
-//	public UserDto displayUserDto(Role userRole) {
-//		
-//		List<User> user = userRole.getUsers(); 
-//		
-//		UserDto userDto = new UserDto();
-//		
-//		userDto.setName(((User) user).getName());
-//		userDto.setFirstname(user.getFirstname());
-//		userDto.setRole(userRole.getIdRole());
-//		userDto.setEmail(user.getEmail());
-//		
-//		return userDto;
-//	}
+
+	@Override
+	public void saveUser(UserDto userDto) {
+		User user = new User();
+		List<Role> roles = new ArrayList<Role>();
+		Role role = new Role();
+		user.setFirstName(userDto.getFirstName());
+		user.setName(userDto.getName());
+		user.setMail(userDto.getMail());
+		// encrypt the password using spring security
+		user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+
+		switch (userDto.getRole()) {
+		case ("ROLE_ADMIN"):
+			role = roleRepository.findByRoleName(userDto.getRole());
+			roles.add(role);
+			role = roleRepository.findByRoleName("ROLE_INFIRMIER");
+			roles.add(role);
+			role = roleRepository.findByRoleName("ROLE_SECRETAIRE");
+			roles.add(role);
+			break;
+		case ("ROLE_INFIRMIER"):
+			role = roleRepository.findByRoleName("ROLE_INFIRMIER");
+			roles.add(role);
+			break;
+		case ("ROLE_SECRETAIRE"):
+			role = roleRepository.findByRoleName("ROLE_SECRETAIRE");
+			roles.add(role);
+			break;
+		}
+		user.setRoles(roles);
+		userRepository.save(user);
+	}
 
 }
