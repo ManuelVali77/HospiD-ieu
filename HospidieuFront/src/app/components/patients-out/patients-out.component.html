@@ -20,7 +20,7 @@
                     <td>{{ patient.firstname }}</td>
                     <td>{{ patient.birthDate | date : 'd/MM/YYYY' }}</td>
                     <td>{{ patient.phone }}</td>
-                    <td><button (click)="onGoToPatient(patient.idPatient)">Voir</button></td>
+                    <td class="voirPlus"><button (click)="onGoToPatient(patient.idPatient)">Voir</button></td>
             </tbody>
         </table>
     </div>

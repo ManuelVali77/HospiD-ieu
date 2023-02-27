@@ -1,5 +1,33 @@
-<h2>A faire !</h2>
+<app-header-dyn></app-header-dyn>
 
-<p> Détails du patient {{ patientId }}</p>
+<div class="detailContain">
+    <div class="detailPatient">
+        <div class="blocPatient">
+            <div class="infoPatient">
+                <img src="../../../assets/img/icone-patient.png"/><p>Nom & Prénom Patient : bobo</p>
+            </div>
+            <div class="infoPatient">
+                <img src="../../../assets/img/icone-service.png"/><p>Service : cardio</p>
+            </div>
+            <div class="infoPatient">
+                <img src="../../../assets/img/porte-patient.png"/><p>Chambre : 2</p>
 
-<button (click)="onAddComment()">Ajouter un commentaire</button>
+            </div>
+            <div class="infoPatient">
+                <img src="../../../assets/img/icone-lit.png"/><p>Lit : 4</p>
+            </div>
+
+        <button class="buttonComment" (click)="onAddComment()">Ajouter un commentaire</button>
+
+        <div class="buttonSuvi">
+            <button><a href="">Entrée</a></button>
+            <button><a href="">Sortie</a></button>
+            <button><a href="">Modifier</a></button>
+        </div>
+    </div>
+    </div>
+
+    <div class="historiquePatient">
+        <h2>Historique du patient : Bob</h2>
+    </div>
+</div>

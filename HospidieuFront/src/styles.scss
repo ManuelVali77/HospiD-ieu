@@ -50,4 +50,8 @@ label {
 small {
     color: red;
 }
-
+button {
+    &:focus {
+        outline: none;
+    }
+}
