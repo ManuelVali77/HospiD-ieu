@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="users")
 public class User
@@ -27,11 +29,13 @@ public class User
     @Column(nullable=false)
     private String password;
 
+    @JsonBackReference
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
             name="users_roles",
             joinColumns={@JoinColumn(name="ID_USER", referencedColumnName="idUser")},
             inverseJoinColumns={@JoinColumn(name="ID_ROLE", referencedColumnName="idRole")})
+    
     private List<Role> roles = new ArrayList<>();
 
 	public int getIdUser() {

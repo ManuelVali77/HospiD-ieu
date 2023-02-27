@@ -21,12 +21,42 @@ public class UserServiceImpl implements UserService {
 	private RoleRepository roleRepository;
 	private PasswordEncoder passwordEncoder;
 
+@Autowired
+	private Dao dao;
+
+	@Override
+	public List<User> getAllUser() {
+		return dao.findAll();
+	}
+
 	public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository,
 			PasswordEncoder passwordEncoder) {
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
 		this.passwordEncoder = passwordEncoder;
 	}
+
+@Override
+    @GetMapping("user")
+    public List<UserDto> findAllUserDto() {
+        List<UserDto> usersDto = new ArrayList();
+        List<User> users = dao.findAll();
+        for(User user : users) {
+            UserDto userDto = new UserDto();
+            List<Role> roles = user.getRoles();
+            for (Role role : roles) {
+                String roleString = role.getRoleName();
+                userDto.setRole(roleString);
+            }
+            userDto.setName(user.getName());
+            userDto.setFirstname(user.getFirstName());
+            userDto.setEmail(user.getMail());
+            userDto.setPassword(user.getPassword());
+            userDto.setIdUser(user.getIdUser());
+            usersDto.add(userDto);
+        }
+        return usersDto;
+    }
 
 	@Override
 	public void saveUser(UserDto userDto) {
@@ -59,26 +89,6 @@ public class UserServiceImpl implements UserService {
 		}
 		user.setRoles(roles);
 		userRepository.save(user);
-	}
-
-	@Override
-	public User findUserByMail(String mail) {
-		return userRepository.findByMail(mail);
-	}
-
-	@Override
-	public List<UserDto> findAllUsers() {
-		List<User> users = userRepository.findAll();
-		return users.stream().map((user) -> mapToUserDto(user)).collect(Collectors.toList());
-	}
-
-	private UserDto mapToUserDto(User user) {
-		UserDto userDto = new UserDto();
-		userDto.setIdUser(user.getIdUser());
-		userDto.setFirstName(user.getFirstName());
-		userDto.setName(user.getName());
-		userDto.setMail(user.getMail());
-		return userDto;
 	}
 
 }

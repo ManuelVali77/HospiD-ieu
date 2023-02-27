@@ -6,16 +6,10 @@ import jakarta.validation.constraints.NotEmpty;
 public class UserDto
 {
     private int idUser;
-    @NotEmpty
     private String firstName;
-    @NotEmpty
     private String name;
-    @NotEmpty(message = "Email should not be empty")
-    @Email
     private String mail;
-    @NotEmpty(message = "Password should not be empty")
     private String password;
-    @NotEmpty
     private String role;
     
 	public int getIdUser() {

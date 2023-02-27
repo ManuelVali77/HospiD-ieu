@@ -13,9 +13,14 @@ body{
     font-family: $roboto-slab;
 }
 
-input {
+input, textarea {
     height: 40px;
-    border: none;
+    // Ajouts pour add-component : à déplacer si besoin
+    resize: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    border: 1px solid white;
     border-radius: 5px;
     box-shadow: 1px 1px 20px 3px darkgrey;
     &::placeholder{

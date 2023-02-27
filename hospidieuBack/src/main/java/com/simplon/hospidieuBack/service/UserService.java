@@ -12,4 +12,9 @@ public interface UserService {
 
 	List<UserDto> findAllUsers();
 
-}
+
+	    List < User > getAllUser();
+
+		List<UserDto> findAllUserDto();
+
+	}
