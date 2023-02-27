@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.simplon.hospidieuBack.model.Role;
 import com.simplon.hospidieuBack.model.User;
 import com.simplon.hospidieuBack.model.UserDto;
-import com.simplon.hospidieuBack.repository.Dao;
+import com.simplon.hospidieuBack.repository.UserRepository;
 
 
 @Service
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
-	private Dao dao;
+	private UserRepository dao;
 
 	@Override
 	public List<User> getAllUser() {

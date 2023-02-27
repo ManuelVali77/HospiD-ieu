@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.simplon.hospidieuBack.controller.UserController;
 import com.simplon.hospidieuBack.model.User;
 import com.simplon.hospidieuBack.model.UserDto;
-import com.simplon.hospidieuBack.repository.Dao;
+import com.simplon.hospidieuBack.repository.UserRepository;
 
 @SpringBootApplication
 public class HospidieuBackApplication  implements CommandLineRunner {

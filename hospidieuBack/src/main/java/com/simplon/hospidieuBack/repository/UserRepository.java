@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.simplon.hospidieuBack.model.User;
 
 @Repository
-public interface Dao extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 	
 
 	
