@@ -12,7 +12,7 @@ import com.simplon.hospidieuBack.model.Patient;
 @Service
 public class PatientConvert {
 
-	public PatientInBedDto convertDoToDto(Bed bed) {
+	public PatientInBedDto convertBedDoToDto(Bed bed) {
 		
 		Patient patient = bed.getPatient();
 		
@@ -32,7 +32,7 @@ public class PatientConvert {
 		List<PatientInBedDto> displayedPatientList = new ArrayList<>();
 		
 		for (Bed bed : patientsList) {
-			displayedPatientList.add(convertDoToDto(bed));
+			displayedPatientList.add(convertBedDoToDto(bed));
 		}
 		return displayedPatientList;
 	}

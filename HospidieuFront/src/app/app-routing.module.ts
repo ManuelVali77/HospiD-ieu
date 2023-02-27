@@ -17,7 +17,9 @@ const routes: Routes = [
   { path : "patientsList/in", component : PatientsInComponent },
   { path : "patientsList/out", component : PatientsOutComponent },
   { path : "patient/:id", component : PatientDetailComponent },
-  { path : "comment/:id", component : AddCommentComponent },
+
+  // Redirections :
+  { path : "", redirectTo : '/login', pathMatch : 'full' }
 ];
 
 @NgModule({

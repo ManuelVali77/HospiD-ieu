@@ -5,18 +5,17 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="roles")
-public class Role
-{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idRole;
+@Table(name = "roles")
+public class Role {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idRole;
 
-    @Column(nullable=false, unique=true)
-    private String roleName;
+	@Column(nullable = false, unique = true)
+	private String roleName;
 
-    @ManyToMany(mappedBy="roles")
-    private List<User> users;
+	@ManyToMany(mappedBy = "roles")
+	private List<User> users;
 
 	public int getIdRole() {
 		return idRole;
