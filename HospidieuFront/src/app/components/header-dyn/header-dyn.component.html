@@ -1,15 +1,14 @@
 <nav class="headerDynAdmin">
     <div class="containLeftNav">
-        <a href="/">
-            <img src='../../../assets/img/logo_transparent.png' alt="Logo HospiD'ieu">
-        </a>
+        <img src='../../../assets/img/logo_transparent.png' alt="Logo HospiD'ieu">
     </div>
 
     <ul class="listNavAdmin">
         <li routerLink="/user" class="liParentAdmin">Utilisateurs
             <ul class="sousAdmin">
                 <li routerLink="/addUser">Ajouter un utilisateur</li>
-                <li routerLink="/user">Modifier un utilisateur</li>
+                <!-- Optionnel : -->
+                <!-- <li routerLink="/user">Modifier un utilisateur</li> -->
             </ul>
         </li>
 
@@ -17,7 +16,7 @@
             <ul class="sousPatient">
                 <li routerLink="/addPatient">Ajouter un patient</li>
                 <!-- TODO -->
-                <li routerLink="/">Modifier un patient</li>
+                <li routerLink="/editPatient">Modifier un patient</li>
             </ul>
         </li>
 
