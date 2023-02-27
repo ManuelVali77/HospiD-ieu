@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Patient } from 'src/app/models/patient.model';
+import { PatientAndBed } from 'src/app/models/patient-and-bed.model';
 
 @Component({
   selector: 'app-patient-detail',
@@ -9,7 +9,7 @@ import { Patient } from 'src/app/models/patient.model';
 })
 export class PatientDetailComponent implements OnInit {
 
-  @Input() patient !: Patient;
+  @Input() patient !: PatientAndBed;
   id !: number;
 
   constructor(private route : ActivatedRoute, private router : Router) {}

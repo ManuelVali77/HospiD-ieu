@@ -1,4 +1,4 @@
-export class Patient {
+export class PatientAndBed {
     idPatient !: number;
     name !: string;
     firstname !: string;
