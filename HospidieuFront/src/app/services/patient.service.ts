@@ -8,19 +8,22 @@ import { Patient } from '../models/patient.model';
 })
 export class PatientService {
 
-    private baseUrl = "http://localhost:8080/";
+  private baseURL = "http://localhost:8080";
 
-    constructor(private http : HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
-    getPatientById(id : number) : Observable<Patient> {
-        return this.http.get<Patient>(`${this.baseUrl}patient/${id}`);
-    }
+  createPatient(patient: Patient): Observable<Object>{
+    return this.httpClient.post<Patient>(this.baseURL+'/addPatient', patient);
+  }
+  getPatientById(id : number) : Observable<Patient> {
+    return this.httpClient.get<Patient>(`${this.baseURL}patient/${id}`);
+  }
 
-    getPatientsInBed() : Observable<Patient[]> {
-        return this.http.get<Patient[]>(`${this.baseUrl}patientsList/in`);
-    }
+  getPatientsInBed() : Observable<Patient[]> {
+      return this.httpClient.get<Patient[]>(`${this.baseURL}patientsList/in`);
+  }
 
-    getPatientsOut() : Observable<Patient[]> {
-        return this.http.get<Patient[]>(`${this.baseUrl}patientsList/out`);
-    }
+  getPatientsOut() : Observable<Patient[]> {
+      return this.httpClient.get<Patient[]>(`${this.baseURL}patientsList/out`);
+  }
 }
