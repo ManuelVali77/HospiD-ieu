@@ -1,28 +1,26 @@
 <nav class="headerDynAdmin">
     <div class="containLeftNav">
-        <a href="/">
-            <img src='../../../assets/img/logo_transparent.png' alt="Logo HospiD'ieu">
-        </a>
+        <img src='../../../assets/img/logo_transparent.png' alt="Logo HospiD'ieu">
     </div>
 
     <ul class="listNavAdmin">
-        <li class="liParentAdmin">
-            <a routerLink="/user" class="userNav">Utilisateur</a>
+        <li routerLink="/user" class="liParentAdmin">Utilisateurs
             <ul class="sousAdmin">
-                <li (click)="goToAddUser()">Ajouter un Utilisateur</li>
-                <li><a href=""></a>Modifier un Utilisateur</li>
+                <li routerLink="/addUser">Ajouter un utilisateur</li>
+                <!-- Optionnel : -->
+                <!-- <li routerLink="/user">Modifier un utilisateur</li> -->
             </ul>
         </li>
 
-        <li class="liParentPatient">
-            <a class="userNav">Patient</a>
+        <li routerLink="/patientsList/in" class="liParentPatient">Patients
             <ul class="sousPatient">
-                <li><a href=""></a>Ajouter un Patient</li>
-                <li><a href=""></a>Modifier un Patient</li>
+                <li routerLink="/addPatient">Ajouter un patient</li>
+                <!-- TODO -->
+                <li routerLink="/editPatient">Modifier un patient</li>
             </ul>
         </li>
 
-        <li class="liLogout">
+        <li routerLink="/logout" class="liLogout">
             <img src="../../../assets/img/logout.png" alt="Logout">
         </li>
     </ul>
