@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddCommentComponent } from './components/add-comment/add-comment.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { PatientDetailComponent } from './components/patient-detail/patient-detail.component';
 import { PatientsInComponent } from './components/patients-in/patients-in.component';
@@ -13,7 +12,6 @@ const routes: Routes = [
   { path : "patientsList/in", component : PatientsInComponent },
   { path : "patientsList/out", component : PatientsOutComponent },
   { path : "patient/:id", component : PatientDetailComponent },
-  { path : "comment/:id", component : AddCommentComponent },
 ];
 
 @NgModule({

@@ -12,6 +12,8 @@ import { PatientsOutComponent } from './components/patients-out/patients-out.com
 import { PatientDetailComponent } from './components/patient-detail/patient-detail.component';
 import { AddCommentComponent } from './components/add-comment/add-comment.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

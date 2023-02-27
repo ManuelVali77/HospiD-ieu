@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Monitoring } from 'src/app/models/monitoring.model';
 import { PatientService } from 'src/app/services/patient.service';
 
@@ -11,17 +11,21 @@ import { PatientService } from 'src/app/services/patient.service';
 })
 export class AddCommentComponent implements OnInit {
 
+  element !: any;
   idPatient !: number;
   commentForm !: FormGroup;
   monitoring !: Monitoring;
   isSubmitted !: boolean;
 
-  constructor (private route : ActivatedRoute, private formBuilder : FormBuilder, private service : PatientService) {}
+  constructor (
+    private formBuilder : FormBuilder,
+    private service : PatientService,
+    private dialogRef : MatDialogRef<AddCommentComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: {patientId: number}
+    ) {}
 
   ngOnInit(): void {
-    this.idPatient = this.route.snapshot.params['id'];
-
-    this.isSubmitted = false;
+    this.idPatient = this.data.patientId;
 
     this.commentForm = this.formBuilder.group({
       comment : ['', [
@@ -35,7 +39,6 @@ export class AddCommentComponent implements OnInit {
   }
 
   onSubmit() : void {
-    this.isSubmitted = true;
 
     if (this.commentForm.valid) {
       const data = this.commentForm.value;
@@ -48,10 +51,15 @@ export class AddCommentComponent implements OnInit {
       }
       
       this.service.saveMonitoring(this.monitoring).subscribe(() => console.log("Envoyé"));
+      this.dialogRef.close();
     } else {
       this.commentForm.markAllAsTouched();
       console.log("Non envoyé");
     }
+  }
+
+  onClose() {
+    this.dialogRef.close();
   }
 
 }
