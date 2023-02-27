@@ -1,0 +1,76 @@
+@import '../../../styles.scss';
+
+.wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, .4);
+    padding: 40px;
+}
+
+.form-area {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+form {
+    margin: auto;
+    max-width: 500px;
+    min-width: 200px;
+    border-radius: 30px;
+    box-shadow: 1px 1px 20px 3px darkgrey;
+    background-color: $colorBaseFond;
+    padding: 40px;
+    label {
+        margin: 5px;
+    }
+}
+
+.buttons {
+    margin: 10px 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap : 15px;
+    button {
+        border-radius: 7px;
+        padding: 15px 30px;
+        font-size: inherit;
+    }
+    button:hover {
+        cursor: pointer;
+    }
+    .submit {
+        background-color: $colorBaseBlue;
+    }
+    .cancel {
+        background-color: $colorBaseRed;
+        color: white;
+    }
+}
+
+textarea {
+    height: 70px;
+}
+
+.error-area {
+    height: 20px;
+}
+
+.invalid {
+    border: 1px solid red;
+}
+
+.error {
+    margin: 0;
+    padding: 2px;
+
+    font-size: 0.9em;
+    color: red;
+}
+
+h2 {
+    text-align: center;
+    margin: 0 0 15px;
+}
+
