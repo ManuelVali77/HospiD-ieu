@@ -29,7 +29,17 @@ input, textarea {
 }
 
 .overlay {
-    background-color: rgb(0, 0, 0,0.3);
+    background-color: rgba(0, 0, 0, 0.7);
     height: 100vh;
+}
+
+select {
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 20px 3px darkgrey;
+    &::placeholder{
+        padding-left: .5em;
+    }
 }
 

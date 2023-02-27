@@ -1,60 +1,51 @@
 package com.simplon.hospidieuBack.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 
-public class UserDto {
-	
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserDto
+{
     private int idUser;
-	
-	private String name;
-	private String firstname;
-	private String role;
-	private String email;
-	private String password;
-	
+    private String firstName;
+    private String name;
+    private String mail;
+    private String password;
+    private String role;
+    
 	public int getIdUser() {
 		return idUser;
 	}
-
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
-	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getFirstname() {
-		return firstname;
+	public String getMail() {
+		return mail;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String roleString) {
-		this.role = roleString;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 }

@@ -8,8 +8,9 @@ import { PatientsListComponent } from './components/patients-list/patients-list.
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderDynComponent } from './components/header-dyn/header-dyn.component';
-import { AddPatientComponent } from './components/add-patient/add-patient.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddPatientComponent } from './components/add-patient/add-patient.component';
 import { PatientsInComponent } from './components/patients-in/patients-in.component';
 import { PatientsOutComponent } from './components/patients-out/patients-out.component';
 import { PatientDetailComponent } from './components/patient-detail/patient-detail.component';
@@ -24,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ConnexionComponent,
     HeaderComponent,
     HeaderDynComponent,
+    AddUserComponent,
     AddPatientComponent,
     PatientsListComponent,
     PatientsInComponent,
@@ -34,7 +36,6 @@ import { MatDialogModule } from '@angular/material/dialog';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     HttpClientModule,
     ReactiveFormsModule,
     MatButtonModule,
