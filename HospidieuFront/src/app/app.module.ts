@@ -8,6 +8,8 @@ import { PatientsListComponent } from './components/patients-list/patients-list.
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderDynComponent } from './components/header-dyn/header-dyn.component';
+import { AddPatientComponent } from './components/add-patient/add-patient.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PatientsInComponent } from './components/patients-in/patients-in.component';
 import { PatientsOutComponent } from './components/patients-out/patients-out.component';
 import { PatientDetailComponent } from './components/patient-detail/patient-detail.component';
@@ -20,6 +22,7 @@ import { AddCommentComponent } from './components/add-comment/add-comment.compon
     ConnexionComponent,
     HeaderComponent,
     HeaderDynComponent,
+    AddPatientComponent,
     PatientsListComponent,
     PatientsInComponent,
     PatientsOutComponent,
@@ -29,7 +32,9 @@ import { AddCommentComponent } from './components/add-comment/add-comment.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
