@@ -19,6 +19,7 @@ import com.simplon.hospidieuBack.model.PatientInBedDto;
 import com.simplon.hospidieuBack.services.AddCommentService;
 import com.simplon.hospidieuBack.services.PatientConvert;
 import com.simplon.hospidieuBack.services.PatientListService;
+import com.simplon.hospidieuBack.services.AddPatientService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -32,6 +33,9 @@ public class PatientController {
 	
 	@Autowired
 	private PatientConvert patientConvert;
+
+	@Autowired
+	private AddPatientService addPatientService;
 	
 	@GetMapping("patientsList/in")
 	public List<PatientInBedDto> getAllPatientsInBeds() {
@@ -48,4 +52,11 @@ public class PatientController {
 	public void saveMonitoring(@RequestBody MonitoringDto newMonitoring) {
 		this.addCommentService.saveNewMonitoring(newMonitoring);
 	}
+
+	@PostMapping("addPatient")
+	public void addPatient(@RequestBody Patient patient) {
+		
+		 this.addPatientService.addPatient(patient);
+	}
 }
+

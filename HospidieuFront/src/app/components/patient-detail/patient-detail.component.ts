@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Patient } from 'src/app/models/patient.model';
+import { PatientAndBed } from 'src/app/models/patient-and-bed.model';
 import { AddCommentComponent } from '../add-comment/add-comment.component';
 
 @Component({
@@ -11,7 +11,7 @@ import { AddCommentComponent } from '../add-comment/add-comment.component';
 })
 export class PatientDetailComponent implements OnInit {
 
-  @Input() patient !: Patient;
+  @Input() patient !: PatientAndBed;
   patientId !: number;
 
   // Modal component :
