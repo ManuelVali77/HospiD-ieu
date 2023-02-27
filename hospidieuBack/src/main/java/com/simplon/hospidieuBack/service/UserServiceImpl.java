@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.simplon.hospidieuBack.model.Role;
 import com.simplon.hospidieuBack.model.User;
@@ -21,12 +22,10 @@ public class UserServiceImpl implements UserService {
 	private RoleRepository roleRepository;
 	private PasswordEncoder passwordEncoder;
 
-@Autowired
-	private Dao dao;
 
 	@Override
 	public List<User> getAllUser() {
-		return dao.findAll();
+		return userRepository.findAll();
 	}
 
 	public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository,
@@ -40,7 +39,7 @@ public class UserServiceImpl implements UserService {
     @GetMapping("user")
     public List<UserDto> findAllUserDto() {
         List<UserDto> usersDto = new ArrayList();
-        List<User> users = dao.findAll();
+        List<User> users = userRepository.findAll();
         for(User user : users) {
             UserDto userDto = new UserDto();
             List<Role> roles = user.getRoles();
@@ -49,8 +48,8 @@ public class UserServiceImpl implements UserService {
                 userDto.setRole(roleString);
             }
             userDto.setName(user.getName());
-            userDto.setFirstname(user.getFirstName());
-            userDto.setEmail(user.getMail());
+            userDto.setFirstName(user.getFirstName());
+            userDto.setMail(user.getMail());
             userDto.setPassword(user.getPassword());
             userDto.setIdUser(user.getIdUser());
             usersDto.add(userDto);

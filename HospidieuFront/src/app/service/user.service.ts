@@ -8,11 +8,11 @@ import { UserDto } from '../models/userDto.model';
 })
 export class UserService {
 
-  private baseUrl = "http://localhost:8080/addUser";
+  private baseUrl = "http://localhost:8080/";
 
   constructor(private http: HttpClient) { }
 
   addUser(userDto: UserDto): Observable<Object>{
-    return this.http.post<UserDto>(this.baseUrl, userDto);
+    return this.http.post<UserDto>(this.baseUrl +"addUser", userDto);
   }
 }
