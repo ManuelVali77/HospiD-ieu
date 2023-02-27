@@ -17,6 +17,7 @@ import { PatientDetailComponent } from './components/patient-detail/patient-deta
 import { AddCommentComponent } from './components/add-comment/add-comment.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AdmissionComponent } from './components/admission/admission.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     PatientsInComponent,
     PatientsOutComponent,
     PatientDetailComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    AdmissionComponent
   ],
   imports: [
     BrowserModule,

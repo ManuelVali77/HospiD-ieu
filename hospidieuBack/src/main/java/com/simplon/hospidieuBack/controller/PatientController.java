@@ -58,5 +58,11 @@ public class PatientController {
 		
 		 this.addPatientService.addPatient(patient);
 	}
+	
+	@GetMapping("admission")
+	public List<Bed> getAllFreeBeds() {
+		return null;
+	}
+	
 }
 
