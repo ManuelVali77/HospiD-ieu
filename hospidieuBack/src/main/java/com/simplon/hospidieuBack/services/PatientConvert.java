@@ -18,7 +18,7 @@ public class PatientConvert {
 		
 		PatientInBedDto displayedPatient = new PatientInBedDto();
 		
-		displayedPatient.setId(patient.getIdPatient());
+		displayedPatient.setIdPatient(patient.getIdPatient());
 		displayedPatient.setName(patient.getName());
 		displayedPatient.setFirstname(patient.getFirstname());
 		displayedPatient.setDepartment(bed.getDepartment());

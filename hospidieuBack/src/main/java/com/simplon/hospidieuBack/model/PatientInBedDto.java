@@ -7,19 +7,28 @@ package com.simplon.hospidieuBack.model;
  */
 public class PatientInBedDto {
 	
-	private int id;
+
+	private int idPatient;
 	private String name;
 	private String firstname;
 	private String department;
 	private int room;
 	private int bed;
 	
-	// Getters/setters
-	public int getId() {
-		return id;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null || getClass() != obj.getClass()) return false;
+		PatientInBedDto that = (PatientInBedDto) obj;
+		return idPatient == that.idPatient && name.equals(that.name) && firstname.equals(that.firstname) && department.equals(that.department) && room == that.room && bed == that.bed;
 	}
-	public void setId(int id) {
-		this.id = id;
+	
+	// Getters/setters
+	public int getIdPatient() {
+		return idPatient;
+	}
+	public void setIdPatient(int id) {
+		this.idPatient = id;
 	}
 	public String getName() {
 		return name;
