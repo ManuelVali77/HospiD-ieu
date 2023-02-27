@@ -62,13 +62,13 @@ INSERT INTO users
     (name, firstname, mail, password) 
 VALUES
     ('Tournet', 'Julien', 'julien.tournet@hospidieu.fr', 'aze'),
-    ('Caudron', 'Mylï¿½ne', 'mylene.caudron@hospidieu.fr', 'qsd'),
+    ('Caudron', 'Mylène', 'mylene.caudron@hospidieu.fr', 'qsd'),
     ('Lebrun', 'Sophie', 'sophie.lebrun@hospidieu.fr', 'wxc'),
     ('Valinhas', 'Manuel', 'manuel.valinhas@hospidieu.fr', '123');
 
-INSERT INTO roles (role_name) VALUES ('ROLE_ADMIN');
 INSERT INTO roles (role_name) VALUES ('ROLE_INFIRMIER');
 INSERT INTO roles (role_name) VALUES ('ROLE_SECRETAIRE');
+INSERT INTO roles (role_name) VALUES ('ROLE_ADMIN');
 
 INSERT INTO users_roles
 VALUES 
@@ -79,7 +79,7 @@ VALUES
     (2, 2),
     (2, 3),
     (3, 2),
-    (4, 3);
+    (4, 1);
 
 INSERT INTO patients
     (name, firstname, birth_date, address, postcode, city, phone, security_number)
