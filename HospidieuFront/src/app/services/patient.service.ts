@@ -2,28 +2,34 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Patient } from '../models/patient.model';
+import { Monitoring } from '../models/monitoring.model';
+import { PatientAndBed } from '../models/patient-and-bed.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class PatientService {
 
-  private baseURL = "http://localhost:8080";
+  private baseUrl = "http://localhost:8080/";
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   createPatient(patient: Patient): Observable<Object>{
-    return this.httpClient.post<Patient>(this.baseURL+'/addPatient', patient);
+    return this.http.post<Patient>(this.baseUrl+'addPatient', patient);
   }
-  getPatientById(id : number) : Observable<Patient> {
-    return this.httpClient.get<Patient>(`${this.baseURL}patient/${id}`);
-  }
-
-  getPatientsInBed() : Observable<Patient[]> {
-      return this.httpClient.get<Patient[]>(`${this.baseURL}patientsList/in`);
+  getPatientById(id : number) : Observable<PatientAndBed> {
+    return this.http.get<PatientAndBed>(`${this.baseUrl}patient/${id}`);
   }
 
-  getPatientsOut() : Observable<Patient[]> {
-      return this.httpClient.get<Patient[]>(`${this.baseURL}patientsList/out`);
+  getPatientsInBed() : Observable<PatientAndBed[]> {
+      return this.http.get<PatientAndBed[]>(`${this.baseUrl}patientsList/in`);
   }
+
+    getPatientsOut() : Observable<PatientAndBed[]> {
+        return this.http.get<PatientAndBed[]>(`${this.baseUrl}patientsList/out`);
+    }
+
+    saveMonitoring(monitoring : Monitoring) : Observable<Monitoring> {
+        return this.http.post<Monitoring>(`${this.baseUrl}comment/save`, monitoring);
+    }
 }
