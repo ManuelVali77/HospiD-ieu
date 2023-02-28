@@ -19,7 +19,7 @@ export class AddCommentComponent implements OnInit {
 
   constructor (
     private formBuilder : FormBuilder,
-    private service : PatientService,
+    private patientService : PatientService,
     private dialogRef : MatDialogRef<AddCommentComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {patientId: number}
     ) {}
@@ -50,7 +50,7 @@ export class AddCommentComponent implements OnInit {
         date : new Date()
       }
       
-      this.service.saveMonitoring(this.monitoring).subscribe(() => console.log("Envoyé"));
+      this.patientService.saveMonitoring(this.monitoring).subscribe(() => console.log("Envoyé"));
       this.dialogRef.close();
     } else {
       this.commentForm.markAllAsTouched();
