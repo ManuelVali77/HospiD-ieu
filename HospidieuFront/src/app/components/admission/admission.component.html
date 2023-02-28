@@ -1,26 +1,28 @@
-<h2 *ngIf="patient">
-    Entrée du patient {{ patient.firstname }} {{ patient.name }} :
-</h2>
-<form [formGroup]="admitForm">
-    <label>Service :</label>
-    <select #deptSelect formControlName = "department" (change)="onSelectDept(deptSelect.value)">
-        <option value="">--Sélection--</option>
-        <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
-    </select>
-    <label>Chambre :</label>
-    <select #roomSelect formControlName = "room" (change)="onSelectRoom(roomSelect.value, deptSelect.value)">
-        <option value="">--Sélection--</option>
-        <option *ngFor="let room of rooms" [value]="room">{{ room }}</option>
-    </select>
-    <label>Lit :</label>
-    <select formControlName = "bed">
-        <option value="">--Sélection--</option>
-        <option *ngFor="let bed of beds" [value]="bed">{{ bed }}</option>
-    </select>
-    <button (click)="onSubmit()">Valider</button>
-    <button (click) = "onCancel()">Annuler</button>
-</form>
-<p>{{ errorMessage }}</p>
-
-{{ admitForm.value | json }}
-{{ admitForm.valid }}
+<app-header-dyn></app-header-dyn>
+<div class="form-container">
+    <form [formGroup]="admitForm">
+        <h2 *ngIf="patient">
+            Entrée du patient {{ patient.firstname }} {{ patient.name }} :
+        </h2>
+        <label>Service :</label>
+        <select #deptSelect formControlName = "department" (change)="onSelectDept(deptSelect.value)">
+            <option value="">--Sélectionnez--</option>
+            <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+        </select>
+        <label>Chambre :</label>
+        <select #roomSelect formControlName = "room" (change)="onSelectRoom(roomSelect.value, deptSelect.value)">
+            <option value="">--Sélectionnez--</option>
+            <option *ngFor="let room of rooms" [value]="room">{{ room }}</option>
+        </select>
+        <label>Lit :</label>
+        <select formControlName = "bed">
+            <option value="">--Sélectionnez--</option>
+            <option *ngFor="let bed of beds" [value]="bed">{{ bed }}</option>
+        </select>
+        <p class="error">{{ errorMessage }}</p>
+        <div class="buttons">
+            <button class="submit" (click)="onSubmit()">Valider</button>
+            <button class="cancel" (click) = "onCancel()">Annuler</button>
+        </div>
+    </form>
+</div>
