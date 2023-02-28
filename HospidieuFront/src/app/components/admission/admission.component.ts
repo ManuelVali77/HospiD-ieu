@@ -33,7 +33,6 @@ export class AdmissionComponent {
     this.idPatient = this.route.snapshot.params['id'];
     this.patientService.getPatientToAdmit(this.idPatient).subscribe((data : Patient) => {
       this.patient = data;
-      console.log(this.patient);
     });
 
     this.patientService.getEmptyBeds().subscribe((data : Bed[]) => {
@@ -47,6 +46,21 @@ export class AdmissionComponent {
       bed : ["", Validators.required]
     });
 
+  }
+
+  findBedId() : number {
+    let bedId = 0;
+    let selectedBed = this.admitForm.value;
+    for (let bed of this.allEmptyBeds) {
+      if (
+        bed.department == selectedBed.department
+        && bed.roomNumber == selectedBed.room
+        && bed.bedNumber == selectedBed.bed
+        ) {
+          bedId = bed.idBed;
+        }
+    }
+    return bedId;
   }
 
   getDepartments() : void {
@@ -82,15 +96,14 @@ export class AdmissionComponent {
 
   onSubmit() : void {
     if (this.admitForm.valid) {
-      const data = this.admitForm.value;
-      console.log(this.admitForm.value);
-
       const patientToAdmit : PatientAndBed = {
-        ...data,
+        ...this.admitForm.value,
         idPatient : this.idPatient,
-      }
+        idBed : this.findBedId()
+      };
 
-      this.patientService.admitPatient(data);
+      this.patientService.admitPatient(patientToAdmit).subscribe(() => console.log("Envoyé"));
+      this.onCancel();
     } else {
       console.log("Non envoyé");
       this.errorMessage = "Tous les champs sont requis"

@@ -153,7 +153,7 @@ VALUES
     (2, 301, 'Raclettologie'),
     (1, 302, 'Raclettologie'),
     (2, 302, 'Raclettologie'),
-    (1, 128, 'Pédiatrie'),
-    (2, 128, 'Pédiatrie'),
     (1, 127, 'Pédiatrie'),
-    (2, 127, 'Pédiatrie');
+    (2, 127, 'Pédiatrie'),
+    (1, 128, 'Pédiatrie'),
+    (2, 128, 'Pédiatrie');
