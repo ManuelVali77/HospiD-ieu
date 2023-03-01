@@ -41,4 +41,9 @@ export class PatientDetailComponent implements OnInit {
     this.modalDialog = this.matDialog.open(AddCommentComponent, this.dialogConfig);
   }
 
+  onEditPatient(id : number) : void {
+    this.router.navigateByUrl("editPatient/" + id);
+    
+  }
+
 }

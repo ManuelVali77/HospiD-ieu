@@ -5,6 +5,8 @@
         <div class="filters">
             <button (click)="onShowPatientsIn()" class="in">Admis</button>
             <button (click)="onShowPatientsOut()" class="current out">Sortis</button>
+            
+            
         </div>
         <table>
             <thead>
@@ -21,6 +23,7 @@
                     <td>{{ patient.birthDate | date : 'd/MM/YYYY' }}</td>
                     <td>{{ patient.phone }}</td>
                     <td><button (click)="onGoToPatient(patient.idPatient)">Voir</button></td>
+                    
             </tbody>
         </table>
     </div>

@@ -9,6 +9,9 @@ import { PatientAndBed } from '../models/patient-and-bed.model';
     providedIn: 'root'
 })
 export class PatientService {
+  updatePatient(patient: Patient) {
+    throw new Error('Method not implemented.');
+  }
 
   private baseUrl = "http://localhost:8080/";
 
@@ -31,5 +34,9 @@ export class PatientService {
 
     saveMonitoring(monitoring : Monitoring) : Observable<Monitoring> {
         return this.http.post<Monitoring>(`${this.baseUrl}comment/save`, monitoring);
+    }
+
+    getPatient(id : number): Observable<Patient>{
+      return this.http.get<Patient>(`${this.baseUrl}editPatient/${id}`);
     }
 }
