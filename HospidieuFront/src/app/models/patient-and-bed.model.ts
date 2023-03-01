@@ -4,8 +4,7 @@ export class PatientAndBed {
     firstname !: string;
     birthDate !: Date;
     phone !: string;
-    department ?: string;
-    room ?: number;
-    bed ?: number;
-    idBed ?: number;
+    department !: string;
+    room !: number;
+    bed !: number;
 }

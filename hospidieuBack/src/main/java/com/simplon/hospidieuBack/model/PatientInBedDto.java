@@ -14,14 +14,13 @@ public class PatientInBedDto {
 	private String department;
 	private int room;
 	private int bed;
-	private int idBed;
 	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) return true;
 		if (obj == null || getClass() != obj.getClass()) return false;
 		PatientInBedDto that = (PatientInBedDto) obj;
-		return idPatient == that.idPatient && name.equals(that.name) && firstname.equals(that.firstname) && department.equals(that.department) && room == that.room && bed == that.bed && idBed == that.idBed;
+		return idPatient == that.idPatient && name.equals(that.name) && firstname.equals(that.firstname) && department.equals(that.department) && room == that.room && bed == that.bed;
 	}
 	
 	// Getters/setters
@@ -60,14 +59,6 @@ public class PatientInBedDto {
 	}
 	public void setBed(int bed) {
 		this.bed = bed;
-	}
-	
-	public int getIdBed() {
-		return idBed;
-	}
-
-	public void setIdBed(int idBed) {
-		this.idBed = idBed;
 	}
 	
 	public String toString() {

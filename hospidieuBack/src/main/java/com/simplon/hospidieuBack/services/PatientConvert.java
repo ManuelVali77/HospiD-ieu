@@ -24,7 +24,6 @@ public class PatientConvert {
 		displayedPatient.setDepartment(bed.getDepartment());
 		displayedPatient.setRoom(bed.getRoomNumber());
 		displayedPatient.setBed(bed.getBedNumber());
-		displayedPatient.setIdBed(bed.getIdBed());
 		
 		return displayedPatient;
 	}
