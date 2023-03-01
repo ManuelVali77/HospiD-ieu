@@ -18,7 +18,7 @@ const routes: Routes = [
   { path : "patientsList", component : PatientsListComponent },
   { path : "patientsList/in", component : PatientsInComponent },
   { path : "patientsList/out", component : PatientsOutComponent },
-  { path : "patient/:id", component : PatientDetailComponent },
+  { path : "patient/:id/history", component : PatientDetailComponent },
 
   // Redirections :
   { path : "", redirectTo : '/login', pathMatch : 'full' }

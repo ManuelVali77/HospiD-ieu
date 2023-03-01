@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Patient } from '../models/patient.model';
 import { Monitoring } from '../models/monitoring.model';
 import { PatientAndBed } from '../models/patient-and-bed.model';
+import { Information } from '../models/information.model';
 
 @Injectable({
     providedIn: 'root'
@@ -32,4 +33,13 @@ export class PatientService {
     saveMonitoring(monitoring : Monitoring) : Observable<Monitoring> {
         return this.http.post<Monitoring>(`${this.baseUrl}comment/save`, monitoring);
     }
+
+    getPatientInBedById(id : number) : Observable<PatientAndBed>{
+      return this.http.get<PatientAndBed>(`${this.baseUrl}patient/${id}`);
+    }
+
+    getMonitoringByPatientId(id : number) : Observable<Information[]>{
+      return this.http.get<Information[]>(`${this.baseUrl}patient/${id}/history`);
+    }
+
 }

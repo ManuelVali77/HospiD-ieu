@@ -4,8 +4,9 @@
     margin-top: 80px;
     background-image: url('../../../assets/img/bg-details.jpg');
     background-size: cover;
+    background-attachment: fixed;
     background-position-y: 64%;
-    height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
     display: flex;
     padding-top: 2em;
     .detailPatient {
@@ -20,7 +21,7 @@
             .infoPatient {
                 display: flex;
                 align-items: flex-end;
-                margin-bottom: 2em;
+                margin-bottom: 1.3em;
                 img {
                     width: 50px;
                     height: 50px;
@@ -28,18 +29,131 @@
                 }
                 p{
                     margin: 0;
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+                span{
+                    margin-left: 1em;
+                    font-style: italic;
+                    color: $colorBasePurple;
+                    font-weight: bold;
                 }
             }
-            .buttonSuvi{
+            .buttonContain {
+                width: 80%;
                 display: flex;
-                justify-content: space-between;
+                flex-direction: column;
+                gap: 1em;
+                .buttonComment {
+                    background-color: $colorBasePurple;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    padding: 1em 2em 1em 2em; 
+                    width: 100%;
+                    cursor: pointer;
+                    transition: .2s ease-in-out;
+                        &:hover {
+                            background-color: purple;
+                        }
+                }
+                .buttonSuvi{
+                    display: flex;
+                    justify-content: space-between;
+                    button {
+                        cursor: pointer;
+                        border: none;
+                        padding: 0.5em 1em 0.5em 1em;
+                        border-radius: 5px;
+                        a{
+                            color: black;
+                            &:hover{
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                    .entree {
+                        background-color: $colorBaseBlue;
+                        border: 2px solid black;
+                        transition: .2s ease-in-out;
+                        &:hover {
+                            background-color: rgb(29 189 111);
+                        }
+                        a {
+                            font-weight: bold;
+                        }
+                    }
+                    .sortie {
+                        background-color: $colorBaseRed;
+                        transition: .2s ease-in-out;
+                        &:hover {
+                            background-color: #e82828;
+                        }
+                        a {
+                            font-weight: bold;
+                        }
+                    }
+                    .modify {
+                        background-color: $colorBasePurple;
+                        transition: .2s ease-in-out;
+                        &:hover {
+                            background-color: purple;
+                        }
+                        a{
+                            color: white;
+                        }
+                    }
+                }
             }
         }
     }
     .historiquePatient {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         flex:2;
+        gap: .5em;
+        padding-bottom: 1em;
         h2 {
+            margin: 0;
             text-align: center;
+            background-color: rgba($colorBaseFond, 0.7);;
+            width: 80%;
+            padding: 0.5em 1em 0.5em 1em;
+        }
+        .historiqueBloc {
+            background-color: rgba($colorBaseFond, 0.7);;
+            width: 80%;
+            padding: 0.5em 1em 0.5em 1em;
+            display: flex;
+            flex-direction: column;
+            gap: .5em;
+            .CommentBloc {
+                display: flex;
+                flex-direction: column;
+                gap: .5em;
+                .symptome {
+                    font-weight: bold;
+                }
+                .comment {
+                    font-size: 14px;
+                }
+                span {
+                    font-style: italic;
+                    color: $colorBasePurple;
+                    font-weight: initial;
+                }
+            }
+        }
+        .commentInfo {
+            display: flex;
+            justify-content: space-between;
+            .dateInfo {
+                font-style: italic;
+            }
+            .infirmierInfo {
+                font-style: italic;
+            }
         }
     }
 }

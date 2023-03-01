@@ -5,7 +5,7 @@
     inset: 0;
     z-index: 10000;
     background-color: rgba(0, 0, 0, .4);
-    padding: 40px;
+    padding-top: 8em;
 }
 
 .form-area {
@@ -17,7 +17,7 @@ form {
     margin: auto;
     max-width: 500px;
     min-width: 200px;
-    border-radius: 30px;
+    border-radius: 10px;
     box-shadow: 1px 1px 20px 3px darkgrey;
     background-color: $colorBaseFond;
     padding: 40px;
@@ -42,10 +42,20 @@ form {
     }
     .submit {
         background-color: $colorBaseBlue;
+        border: none;
+        transition: .2s ease-in-out;
+        &:hover {
+            background-color: rgb(88, 180, 138);
+        }
     }
     .cancel {
         background-color: $colorBaseRed;
         color: white;
+        border: none;
+        transition: .2s ease-in-out;
+        &:hover {
+            background-color: rgb(192, 59, 59);
+        }
     }
 }
 

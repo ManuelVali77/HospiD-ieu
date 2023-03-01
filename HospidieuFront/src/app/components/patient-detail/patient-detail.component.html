@@ -1,33 +1,49 @@
 <app-header-dyn></app-header-dyn>
-
 <div class="detailContain">
     <div class="detailPatient">
         <div class="blocPatient">
             <div class="infoPatient">
-                <img src="../../../assets/img/icone-patient.png"/><p>Nom & Prénom Patient : bobo</p>
+                <img src="../../../assets/img/icone-patient.png"/><p>Nom & Prénom : </p><span>{{patient.name}} {{patient.firstname}}</span>
             </div>
             <div class="infoPatient">
-                <img src="../../../assets/img/icone-service.png"/><p>Service : cardio</p>
+                <img src="../../../assets/img/icone-service.png"/><p>Service : </p>
+                <span *ngIf="patient.department != null">{{patient.department}}</span>
+                <span *ngIf="patient.department == null">- -</span>
             </div>
             <div class="infoPatient">
-                <img src="../../../assets/img/porte-patient.png"/><p>Chambre : 2</p>
-
+                <img src="../../../assets/img/porte-patient.png"/>
+                <p>Chambre : </p>
+                <span *ngIf="patient.room != 0">{{patient.room}}</span>
+                <span *ngIf="patient.room == 0">- -</span>
             </div>
             <div class="infoPatient">
-                <img src="../../../assets/img/icone-lit.png"/><p>Lit : 4</p>
+                <img src="../../../assets/img/icone-lit.png"/><p>Lit : </p>
+                <span *ngIf="patient.bed != 0">{{patient.bed}}</span>
+                <span *ngIf="patient.bed == 0">- -</span>
             </div>
-
-        <button class="buttonComment" (click)="onAddComment()">Ajouter un commentaire</button>
-
-        <div class="buttonSuvi">
-            <button><a href="">Entrée</a></button>
-            <button><a href="">Sortie</a></button>
-            <button><a href="">Modifier</a></button>
+        <div class="buttonContain">
+            <button class="buttonComment" (click)="onAddComment()">Ajouter un commentaire</button>
+            <div class="buttonSuvi">
+                <button class="entree"><a href="">Entrée</a></button>
+                <button class="sortie"><a href="">Sortie</a></button>
+                <button class="modify"><a href="">Modifier</a></button>
+            </div>
         </div>
     </div>
     </div>
 
     <div class="historiquePatient">
-        <h2>Historique du patient : Bob</h2>
+        <h2>Historique du patient</h2>
+        <div *ngFor="let monitor of monitoring" class="historiqueBloc">
+            <div class="CommentBloc">
+                <div class="symptome">Symptôme : <span>{{monitor.symptom}}</span></div>
+                <div class="comment">{{monitor.comment}}</div>
+            </div>
+            <div class="commentInfo">
+                <div class="dateInfo">{{monitor.date | date : "d/MM/YYYY à hh:mm"}}</div>
+                <div class="infirmierInfo">{{monitor.userName}}</div>
+            </div>
+
+        </div>
     </div>
 </div>

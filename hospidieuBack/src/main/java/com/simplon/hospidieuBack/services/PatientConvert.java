@@ -36,4 +36,14 @@ public class PatientConvert {
 		}
 		return displayedPatientList;
 	}
+	
+	public PatientInBedDto convertPatientDoToDto(Patient patient) {
+		
+		PatientInBedDto displayedPatient = new PatientInBedDto();
+		displayedPatient.setIdPatient(patient.getIdPatient());
+		displayedPatient.setName(patient.getName());
+		displayedPatient.setFirstname(patient.getFirstname());
+		
+		return displayedPatient;
+	}
 }

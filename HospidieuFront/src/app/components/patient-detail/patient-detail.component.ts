@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Information } from 'src/app/models/information.model';
 import { PatientAndBed } from 'src/app/models/patient-and-bed.model';
+import { PatientService } from 'src/app/services/patient.service';
 import { AddCommentComponent } from '../add-comment/add-comment.component';
 
 @Component({
@@ -13,15 +15,20 @@ export class PatientDetailComponent implements OnInit {
 
   @Input() patient !: PatientAndBed;
   patientId !: number;
+  monitoring !: Information[];
 
   // Modal component :
   dialogConfig = new MatDialogConfig();
   modalDialog : MatDialogRef<AddCommentComponent, any> | undefined;
 
-  constructor(private route : ActivatedRoute, private router : Router, private matDialog : MatDialog) {}
+  constructor(private patientService : PatientService, private route : ActivatedRoute, private router : Router, private matDialog : MatDialog) {}
 
   ngOnInit() : void {
     this.patientId = this.route.snapshot.params['id'];
+      this.patientService.getPatientInBedById(this.patientId).subscribe((data : PatientAndBed) => {
+        this.patient = data;
+      })
+      this.patientService.getMonitoringByPatientId(this.patientId).subscribe((data: Information[]) => { this.monitoring = data});
   }
 
   // // To close the modal if the user clicks outside it (not working) :
