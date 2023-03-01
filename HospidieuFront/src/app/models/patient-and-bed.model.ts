@@ -7,4 +7,5 @@ export class PatientAndBed {
     department !: string;
     room !: number;
     bed !: number;
+    bedId ?: number;
 }

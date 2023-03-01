@@ -41,4 +41,8 @@ export class PatientDetailComponent implements OnInit {
     this.modalDialog = this.matDialog.open(AddCommentComponent, this.dialogConfig);
   }
 
+  onAssignBed() : void {
+    this.router.navigateByUrl("/admission/" + this.patientId);
+  }
+
 }
