@@ -76,21 +76,17 @@
                         background-color: $colorBaseBlue;
                         border: 2px solid black;
                         transition: .2s ease-in-out;
+                        font-weight: bold;
                         &:hover {
                             background-color: rgb(29 189 111);
-                        }
-                        a {
-                            font-weight: bold;
                         }
                     }
                     .sortie {
                         background-color: $colorBaseRed;
                         transition: .2s ease-in-out;
+                        font-weight: bold;
                         &:hover {
                             background-color: #e82828;
-                        }
-                        a {
-                            font-weight: bold;
                         }
                     }
                     .modify {

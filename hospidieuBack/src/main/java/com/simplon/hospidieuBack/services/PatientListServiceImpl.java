@@ -32,9 +32,6 @@ public class PatientListServiceImpl implements PatientListService {
 	
 	@Autowired 
 	private PatientConvert patientConv;
-	
-	@Autowired
-	
 
 	@Override
 	public List<Patient> getAllPatients() {
@@ -90,6 +87,5 @@ public class PatientListServiceImpl implements PatientListService {
 		return patientsList;
 	}
 
-	
 
 }

@@ -14,7 +14,10 @@ import com.simplon.hospidieuBack.services.PatientListService;
 
 @SpringBootApplication
 public class HospidieuBackApplication  implements CommandLineRunner {
-
+	
+	@Autowired
+	PatientController control;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(HospidieuBackApplication.class, args);
 	}

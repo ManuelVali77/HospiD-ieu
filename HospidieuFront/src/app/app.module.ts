@@ -17,6 +17,11 @@ import { PatientDetailComponent } from './components/patient-detail/patient-deta
 import { AddCommentComponent } from './components/add-comment/add-comment.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AdmissionComponent } from './components/admission/admission.component';
+import { RemoveFromBedComponent } from './components/remove-from-bed/remove-from-bed.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
 
 @NgModule({
   declarations: [
@@ -31,7 +36,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     PatientsInComponent,
     PatientsOutComponent,
     PatientDetailComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    AdmissionComponent,
+    RemoveFromBedComponent
   ],
   imports: [
     BrowserModule,

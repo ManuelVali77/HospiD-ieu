@@ -55,7 +55,7 @@ CREATE TABLE monitorings (
     ID_user INT,
     comment VARCHAR(200),
     symptom VARCHAR(50),
-    date DATE
+    date DATETIME
     );
 
 INSERT INTO users
@@ -135,3 +135,25 @@ VALUES
     ('Test','Test', '2023-01-01', 'Test', 99999, 'Test' ,'Test', 'Test');
 
 --DELETE FROM patients WHERE name = 'Test';
+
+
+INSERT INTO beds
+    (bed_number, room_number, department)
+VALUES
+    (1, 102, 'Comatologie'),
+    (2, 102, 'Comatologie'),
+    (1, 103, 'Comatologie'),
+    (2, 103, 'Comatologie'),
+    (1, 104, 'Comatologie'),
+    (2, 104, 'Comatologie'),
+    (1, 202, 'Alcoologie'),
+    (2, 202, 'Alcoologie'),
+    (1, 203, 'Alcoologie'),
+    (2, 203, 'Alcoologie'),
+    (2, 301, 'Raclettologie'),
+    (1, 302, 'Raclettologie'),
+    (2, 302, 'Raclettologie'),
+    (1, 127, 'Pédiatrie'),
+    (2, 127, 'Pédiatrie'),
+    (1, 128, 'Pédiatrie'),
+    (2, 128, 'Pédiatrie');
