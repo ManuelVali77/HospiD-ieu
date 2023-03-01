@@ -55,7 +55,7 @@ CREATE TABLE monitorings (
     ID_user INT,
     comment VARCHAR(200),
     symptom VARCHAR(50),
-    date DATE
+    date DATETIME
     );
 
 INSERT INTO users
