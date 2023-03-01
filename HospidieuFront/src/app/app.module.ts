@@ -17,8 +17,6 @@ import { PatientDetailComponent } from './components/patient-detail/patient-deta
 import { AddCommentComponent } from './components/add-comment/add-comment.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { AdmissionComponent } from './components/admission/admission.component';
-import { RemoveFromBedComponent } from './components/remove-from-bed/remove-from-bed.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +31,7 @@ import { RemoveFromBedComponent } from './components/remove-from-bed/remove-from
     PatientsInComponent,
     PatientsOutComponent,
     PatientDetailComponent,
-    AddCommentComponent,
-    AdmissionComponent,
-    RemoveFromBedComponent
+    AddCommentComponent
   ],
   imports: [
     BrowserModule,
