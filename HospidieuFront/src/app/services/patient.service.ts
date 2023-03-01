@@ -46,4 +46,8 @@ export class PatientService {
   admitPatient(patient : PatientAndBed) : Observable<PatientAndBed> {
     return this.http.put<PatientAndBed>(`${this.baseUrl}admission/save`, patient);
   }
+
+  dismissPatient(patient : PatientAndBed) : Observable<PatientAndBed> {
+    return this.http.put<PatientAndBed>(`${this.baseUrl}dismiss`, patient);
+  }
 }
