@@ -21,11 +21,11 @@ export class AddCommentComponent implements OnInit {
     private formBuilder : FormBuilder,
     private patientService : PatientService,
     private dialogRef : MatDialogRef<AddCommentComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {patientId: number}
+    @Inject(MAT_DIALOG_DATA) public parentData: {patientId: number}
     ) {}
 
   ngOnInit(): void {
-    this.idPatient = this.data.patientId;
+    this.idPatient = this.parentData.patientId;
 
     this.commentForm = this.formBuilder.group({
       comment : ['', [

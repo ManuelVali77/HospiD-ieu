@@ -87,4 +87,8 @@ public class PatientController {
 		admissionService.admitPatientToBed(patientInBed);
 	}
 
+	@PutMapping("dismiss")
+	public void dismissPatient(@RequestBody PatientInBedDto patientInBed) {
+		admissionService.dismissPatientFromBed(patientInBed);
+	}
 }

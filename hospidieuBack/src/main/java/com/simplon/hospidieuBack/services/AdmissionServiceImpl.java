@@ -48,9 +48,23 @@ public class AdmissionServiceImpl implements AdmissionService {
 		bed.setPatient(patient);
 		bedRepo.save(bed);
 		
-		addInOutMonitoring(patientInBed, "Admission");
+		addInOutMonitoring(patientInBed, "admis au");
 	}
 	
+	@Override
+	public void dismissPatientFromBed(PatientInBedDto patientInBed) {
+		int idBed = patientInBed.getIdBed();
+		System.out.println(idBed);
+		Bed bed = getBedById(idBed);
+		System.out.println(bed);
+		bed.setPatient(null);
+		System.out.println(bed);
+		bedRepo.save(bed);
+		
+		addInOutMonitoring(patientInBed, "sorti du");
+	}
+	
+	@Override
 	public void addInOutMonitoring(PatientInBedDto patientDto, String condition) {
 		Monitoring monitoring = new Monitoring();
 		monitoring.setDate(new Date());
@@ -61,7 +75,7 @@ public class AdmissionServiceImpl implements AdmissionService {
 //		// TODO à ajouter quand on pourra récupérer l'utilisateur :
 //		monitoring.setUser(user);
 		
-		monitoring.setComment(condition + " du patient dans le service " + patientDto.getDepartment() + ", chambre " + patientDto.getRoom() + " lit " + patientDto.getBed());
+		monitoring.setComment("Patient " + condition + " service " + patientDto.getDepartment() + ", chambre " + patientDto.getRoom() + " lit " + patientDto.getBed());
 		
 		monitoringRepo.save(monitoring);
 	}
