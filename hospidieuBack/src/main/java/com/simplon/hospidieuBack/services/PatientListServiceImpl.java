@@ -52,5 +52,4 @@ public class PatientListServiceImpl implements PatientListService {
 		return patientsList;
 	}
 	
-	
 }
