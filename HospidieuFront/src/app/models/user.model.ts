@@ -5,5 +5,6 @@ export class User {
     mail!: string;
     password !: string;
     users_roles !: string;
-    role !:Array<any>;
+    roles !:Array<any>;
+    token?:string;
   }
