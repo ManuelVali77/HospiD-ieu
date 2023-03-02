@@ -17,29 +17,11 @@ public class AddCommentServiceImpl implements AddCommentService {
 	private MonitoringRepository monitoringRepo;
 	
 	@Autowired
-	private PatientRepository patientRepo;
+	private MonitoringConvert convert;
 
 	@Override
 	public void saveNewMonitoring(MonitoringDto monitoringDto) {
-		monitoringRepo.save(convertMonitoringDtoToDo(monitoringDto));
-	}
-	
-	@Override
-	public Monitoring convertMonitoringDtoToDo(MonitoringDto monitoringDto) {
-		Monitoring monitoring = new Monitoring();
-
-		monitoring.setComment(monitoringDto.getComment());
-		monitoring.setSymptom(monitoringDto.getSymptom());
-		monitoring.setDate(monitoringDto.getDate());
-
-		Patient patient = patientRepo.findPatientsByIdPatient(monitoringDto.getIdPatient());
-		monitoring.setPatient(patient);
-		
-		// TODO ajouter le User après la création du repo
-//		User user = userRepo.findUsersById(monitoringDto.getIdUser());
-//		monitoring.setUser(user);
-		
-		return monitoring;
+		monitoringRepo.save(convert.convertMonitoringDtoToDo(monitoringDto));
 	}
 	
 }

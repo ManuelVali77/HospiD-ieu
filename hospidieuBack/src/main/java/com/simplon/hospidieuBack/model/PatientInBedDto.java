@@ -1,7 +1,8 @@
 package com.simplon.hospidieuBack.model;
 
 /**
- * DTO to display Patients infos in the patients list
+ * DTO to display Patients infos in the patients list ;
+ * contains the User's mail to save the User in Monitorings
  * @author S. Lebrun
  *
  */
@@ -15,13 +16,14 @@ public class PatientInBedDto {
 	private int room;
 	private int bed;
 	private int idBed;
+	private String userMail;
 	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) return true;
 		if (obj == null || getClass() != obj.getClass()) return false;
 		PatientInBedDto that = (PatientInBedDto) obj;
-		return idPatient == that.idPatient && name.equals(that.name) && firstname.equals(that.firstname) && department.equals(that.department) && room == that.room && bed == that.bed && idBed == that.idBed;
+		return idPatient == that.idPatient && name.equals(that.name) && firstname.equals(that.firstname) && department.equals(that.department) && room == that.room && bed == that.bed && idBed == that.idBed && userMail.equals(that.userMail);
 	}
 	
 	// Getters/setters
@@ -70,6 +72,14 @@ public class PatientInBedDto {
 		this.idBed = idBed;
 	}
 	
+	public String getUserMail() {
+		return userMail;
+	}
+
+	public void setUserMail(String userMail) {
+		this.userMail = userMail;
+	}
+
 	public String toString() {
 		return "Le patient " + this.name + " " + this.firstname + " est au service " + this.department + " chambre n°" + this.room + " lit " + this.bed;
 	}

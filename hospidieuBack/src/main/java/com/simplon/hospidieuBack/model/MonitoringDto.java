@@ -8,7 +8,7 @@ public class MonitoringDto {
 	private String symptom;
 	private Date date;
 	private int idPatient;
-	private int idUser;
+	private String userMail;
 	
 	// Getters-setters
 	public String getComment() {
@@ -35,11 +35,11 @@ public class MonitoringDto {
 	public void setIdPatient(int idPatient) {
 		this.idPatient = idPatient;
 	}
-	public int getIdUser() {
-		return idUser;
+	public String getUserMail() {
+		return userMail;
 	}
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
+	public void setIdUser(String userMail) {
+		this.userMail = userMail;
 	}
 
 }

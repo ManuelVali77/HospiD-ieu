@@ -99,7 +99,8 @@ export class AdmissionComponent {
       const patientToAdmit : PatientAndBed = {
         ...this.admitForm.value,
         idPatient : this.idPatient,
-        idBed : this.findBedId()
+        idBed : this.findBedId(),
+        userMail : sessionStorage.getItem('mail')
       };
 
       this.patientService.admitPatient(patientToAdmit).subscribe(() => console.log("Envoyé"));

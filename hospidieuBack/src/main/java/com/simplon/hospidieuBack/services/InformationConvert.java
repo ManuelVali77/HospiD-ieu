@@ -33,6 +33,7 @@ public class InformationConvert {
 		information.setIdPatient(patient.getIdPatient());
 		
 		User user = monitoring.getUser();
+		// TODO enlever le if quand on récupèrera l'utilisateur
 		if (user != null) {			
 			information.setIdUser(user.getIdUser());
 			information.setUserFirstName(user.getFirstName());

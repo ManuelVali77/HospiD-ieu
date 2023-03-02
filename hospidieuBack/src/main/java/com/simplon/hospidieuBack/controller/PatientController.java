@@ -85,7 +85,7 @@ public class PatientController {
 		return admissionService.getEmptyBeds();
 	}
 
-	@RequestMapping(value = { "/admission/{idPatient}" }, method = RequestMethod.GET)
+	@GetMapping("/admission/{idPatient}")
 	public Patient getPatientToAdmit(@PathVariable("idPatient") String inputId) {
 		try {
 			int id = Integer.parseInt(inputId);

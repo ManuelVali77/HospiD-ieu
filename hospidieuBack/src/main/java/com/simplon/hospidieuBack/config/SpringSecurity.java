@@ -26,52 +26,51 @@ public class SpringSecurity {
 
 //    @Autowired
 //    private CustomUserDetailsService userDetailsService;
-    @Autowired
+	@Autowired
 	JwtAuthenticationEntryPoint authenticationEntryPoint;
-    
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-    	return authenticationConfiguration.getAuthenticationManager();
-    }
-    
-    @Bean
-    public static PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
-		.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and()
-		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeHttpRequests((authorize) ->
-                        authorize.requestMatchers("/patientsList/in").permitAll()
-                                .requestMatchers("/patientsList/out").permitAll()
-                                .requestMatchers("/addPatient").permitAll()
-                                .requestMatchers("/addUser").permitAll()
-                                .requestMatchers("/user").permitAll()
-    					.anyRequest().authenticated()
-                        
-                ).formLogin(
-                        form -> form
-                                .loginPage("/login")
-                                .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/patientsList/in", true)
-                                .permitAll()
-                ).logout(
-                        logout -> logout
-                                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                                .permitAll()
-                );
-
-		http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);		
-        return http.build();
-    }
-    
 	@Bean
-	public JwtTokenFilter jwtTokenFilter(){
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+			throws Exception {
+		return authenticationConfiguration.getAuthenticationManager();
+	}
+
+	@Bean
+	public static PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+
+	@Bean
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and()
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+				.authorizeHttpRequests((authorize) -> authorize
+						.requestMatchers("/patientsList/in").permitAll()
+						.requestMatchers("/patientsList/out").permitAll()
+						.requestMatchers("/addPatient").permitAll()
+						.requestMatchers("/addUser").permitAll()
+						.requestMatchers("/user").permitAll()
+						// TODO @Julien check les permissions ajoutées
+						.requestMatchers("/patient/**").permitAll()
+						.requestMatchers("/admission/**").permitAll()
+						.requestMatchers("/dismiss/**").permitAll()
+						.requestMatchers("/comment/**").permitAll()
+						.requestMatchers("/editPatient/**").permitAll()
+						.anyRequest()
+						.authenticated()
+
+				)
+				.formLogin(form -> form.loginPage("/login").loginProcessingUrl("/login")
+						.defaultSuccessUrl("/patientsList/in", true).permitAll())
+				.logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll());
+
+		http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+		return http.build();
+	}
+
+	@Bean
+	public JwtTokenFilter jwtTokenFilter() {
 		return new JwtTokenFilter();
 	}
-	
-}
 
+}

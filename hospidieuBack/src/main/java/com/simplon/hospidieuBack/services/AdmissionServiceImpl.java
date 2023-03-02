@@ -10,9 +10,11 @@ import com.simplon.hospidieuBack.model.Bed;
 import com.simplon.hospidieuBack.model.Monitoring;
 import com.simplon.hospidieuBack.model.Patient;
 import com.simplon.hospidieuBack.model.PatientInBedDto;
+import com.simplon.hospidieuBack.model.User;
 import com.simplon.hospidieuBack.repository.BedRepository;
 import com.simplon.hospidieuBack.repository.MonitoringRepository;
 import com.simplon.hospidieuBack.repository.PatientRepository;
+import com.simplon.hospidieuBack.repository.UserRepository;
 
 @Service
 public class AdmissionServiceImpl implements AdmissionService {
@@ -23,6 +25,8 @@ public class AdmissionServiceImpl implements AdmissionService {
 	private PatientRepository patientRepo;
 	@Autowired
 	private MonitoringRepository monitoringRepo;
+	@Autowired
+	private UserRepository userRepo;
 
 	@Override
 	public List<Bed> getEmptyBeds() {
@@ -53,12 +57,8 @@ public class AdmissionServiceImpl implements AdmissionService {
 	
 	@Override
 	public void dismissPatientFromBed(PatientInBedDto patientInBed) {
-		int idBed = patientInBed.getIdBed();
-		System.out.println(idBed);
-		Bed bed = getBedById(idBed);
-		System.out.println(bed);
+		Bed bed = getBedById(patientInBed.getIdBed());
 		bed.setPatient(null);
-		System.out.println(bed);
 		bedRepo.save(bed);
 		
 		addInOutMonitoring(patientInBed, "sorti du");
@@ -72,8 +72,8 @@ public class AdmissionServiceImpl implements AdmissionService {
 		Patient patient = patientRepo.findPatientsByIdPatient(patientDto.getIdPatient());
 		monitoring.setPatient(patient);
 		
-//		// TODO à ajouter quand on pourra récupérer l'utilisateur :
-//		monitoring.setUser(user);
+		User user = userRepo.findByMail(patientDto.getUserMail());
+		monitoring.setUser(user);
 		
 		monitoring.setComment("Patient " + condition + " service " + patientDto.getDepartment() + ", chambre " + patientDto.getRoom() + " lit " + patientDto.getBed());
 		
