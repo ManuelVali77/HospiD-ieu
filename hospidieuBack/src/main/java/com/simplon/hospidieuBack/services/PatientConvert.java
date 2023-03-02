@@ -24,6 +24,7 @@ public class PatientConvert {
 		displayedPatient.setDepartment(bed.getDepartment());
 		displayedPatient.setRoom(bed.getRoomNumber());
 		displayedPatient.setBed(bed.getBedNumber());
+		displayedPatient.setIdBed(bed.getIdBed());
 		
 		return displayedPatient;
 	}
@@ -35,5 +36,15 @@ public class PatientConvert {
 			displayedPatientList.add(convertBedDoToDto(bed));
 		}
 		return displayedPatientList;
+	}
+	
+	public PatientInBedDto convertPatientDoToDto(Patient patient) {
+		
+		PatientInBedDto displayedPatient = new PatientInBedDto();
+		displayedPatient.setIdPatient(patient.getIdPatient());
+		displayedPatient.setName(patient.getName());
+		displayedPatient.setFirstname(patient.getFirstname());
+		
+		return displayedPatient;
 	}
 }

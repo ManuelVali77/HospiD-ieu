@@ -1,0 +1,77 @@
+@import '../../../styles.scss';
+
+.ajoutPContain{
+    background-image: url('../../../assets/img/bgModifier.jpg');
+    height: 100vh;
+    background-size: cover;
+        .formContain {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            justify-content: center;
+            form {
+                display: flex;
+                flex-direction: column;
+                background-color: rgba($colorBaseFond, 0.90);
+                height: 500px;
+                width: 500px;
+                padding: 1em 3em 1em 3em;
+                border-radius: 10px;
+                justify-content: space-between;
+                margin-top: 5em;
+                h2 {
+                    margin: 0;
+                    text-align: center;
+                    font-family: $roboto-slab;
+                    span {
+                        font-style: italic;
+                    }
+                }
+                .inputContain {
+                    display: flex;
+                    justify-content: space-between;
+                    .inputAjoutP {
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+                        img {
+                            width: 20px;
+                        }
+                        input {
+                            width: 170px;
+                        }
+                        small {
+                            position: absolute;
+                            top: 65px;
+                            font-size: 11px;
+                        }
+                    }
+                }
+                
+                .buttonContain {
+                    display: flex;
+                    justify-content: center;
+                    button {
+                        padding: .7em .4em .7em .4em;
+                        width: 50%;
+                        border: none;
+                        cursor: pointer;
+                        border-radius: 50px;
+                        font-size: 1em;
+                        color: white;
+                        background-color: $colorBaseRed;
+                        font-weight: bold;
+                        background: linear-gradient(120deg, $colorBaseRed, $colorBaseBlue, $colorBasePurple);
+                        background-size: 200% 100%;
+                        background-position: 100% 0;
+                        transition: background-position .5s;
+                        margin-top: 1em;
+                        &:hover {
+                            background-position: 0 0;
+                        }
+                    }
+                }
+            }
+        }
+    }

@@ -10,11 +10,12 @@
 
 .image-container {
     padding-top: 80px;
-    background-image: url('../../../assets/img/image_infirmiers.jpg');
+    background-image: url('../../../assets/img/image-infirmiers.jpg');
     background-size: cover;
-    background-position-x: 30%;
+    background-position-x: 30em;
     min-height: 100%;
-    flex: 2;
+    flex: 3;
+    background-attachment: fixed;
 }
 
 .patients-list-container {
@@ -22,42 +23,101 @@
     flex: 3;
     display: flex;
     flex-flow : column wrap;
-    align-items: center;
+    align-items: flex-start;
+    .tableContain {
+        width: 100%;
+    }
 }
 
 h2 {
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: 1em;
     text-align: center;
-    margin: 10px;
 }
 
-.filters {
+.filtersContain {
     margin: 10px 0;
     display: flex;
     flex-flow: row nowrap;
     gap : 10px;
-}
-
-button {
-    height: 30px;
-    width: 60px;
-}
-
-
-table {
-    border-collapse: collapse;
-    width: 350px;
-}
-
-th, tr {
-    padding: 5px 10px;
-    background-color: rgb(170, 170, 170);
-}
-
-tr:nth-child(odd) {
-    background-color: rgba(179, 179, 179, 0.6);
-}
-
-td {
-    text-align: center;
-    padding: 5px 7px;
-}
+    justify-content: space-between;
+    width: 100%;
+    .filters {
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .searchBar {
+        width: 50%;
+    }
+    button {
+        padding: 0.5em 1em 0.5em 1em;
+        border-radius: 7px;
+    }
+    button:hover {
+        cursor: pointer;
+    }
+    .in {
+        background-color: $colorBaseBlue;
+        border: none;
+        &:hover {
+            box-shadow: 0 0 0 0 rgba($colorBaseBlue, 1);
+            transform: scale(1);
+            animation: pulseBlue 2s infinite;
+        }
+        &.current {
+            opacity: 0.5;
+            animation: initial;
+            cursor: initial;
+        }
+    }
+    @keyframes pulseBlue {
+        0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba($colorBaseBlue, 7);
+        }
+    
+        70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+        }
+    
+        100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+    }
+    }
+    .out {
+        background-color: $colorBaseRed;
+        color: white;
+        border: none;
+        &:hover {
+            box-shadow: 0 0 0 0 rgba($colorBaseRed, 1);
+            transform: scale(1);
+            animation: pulseRed 2s infinite;
+        }
+        &.current {
+            opacity: 0.5;
+            animation: none;
+            cursor: initial;
+        }
+    }
+    @keyframes pulseRed {
+        0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba($colorBaseRed, 7);
+        }
+    
+        70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+        }
+    
+        100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+    }
+    

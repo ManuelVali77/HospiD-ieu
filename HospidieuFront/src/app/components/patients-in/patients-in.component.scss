@@ -1,78 +1,83 @@
 @import '../../../styles.scss';
 
-.background {
-    min-height: 100vh;
-    background-color: $colorBaseFond;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-}
-
-.image-container {
-    padding-top: 80px;
-    background-image: url('../../../assets/img/image_infirmiers.jpg');
-    background-size: cover;
-    background-position-x: 30%;
-    min-height: 100%;
-    flex: 2;
-}
-
-.patients-list-container {
-    padding: 80px 20px 20px;
-    flex: 3;
-    display: flex;
-    flex-flow : column wrap;
-    align-items: center;
-}
-
-h2 {
-    text-align: center;
-    margin: 10px;
-}
-
-// Fixer la taille si on ajoute la barre de recherche
-.filters {
-    margin: 10px 0;
-    display: flex;
-    flex-flow: row nowrap;
-    gap : 10px;
-    // width: 350px;
-    button {
-        height: 30px;
-        width: 60px;
-        border-radius: 7px;
-    }
-    button:hover {
-        cursor: pointer;
-    }
-    .in {
-        background-color: $colorBaseBlue;
-    }
-    .out {
-        background-color: $colorBaseRed;
-        color: white;
-    }
-    .current {
-        opacity: 0.5;
-    }
-}
-
-
 
 table {
     border-collapse: collapse;
+    width: 100%;
 }
 
-th, tr {
+th{
     padding: 5px 10px;
-    background-color: rgb(170, 170, 170);
+    background-color: $colorBaseBlue
 }
 
-tr:nth-child(odd) {
-    background-color: rgba(179, 179, 179, 0.6);
+tr:nth-child(even) {
+    background-color: rgb(167 209 184);
 }
 
 td {
-    text-align: center;
-    padding: 5px 7px;
+    padding: 5px 10px;
+}
+
+.voirPlus {
+    button {
+        width: 100%;
+        padding: .8em;
+        font-weight: bolder;
+        border: none;
+        outline: none;
+        color: #fff;
+        background: $colorBasePurple;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;
+    }
+    
+    button:before {
+        content: '';
+        background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+        position: absolute;
+        top: -2px;
+        left:-2px;
+        background-size: 400%;
+        z-index: -1;
+        filter: blur(5px);
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        animation: glowing 20s linear infinite;
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        border-radius: 10px;
+    }
+    
+    button:active {
+        color: #000
+    }
+    
+    button:active:after {
+        background: transparent;
+    }
+    
+    button:hover:before {
+        opacity: 1;
+    }
+    
+    button:after {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: $colorBasePurple;
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+    }
+    
+    @keyframes glowing {
+        0% { background-position: 0 0; }
+        50% { background-position: 400% 0; }
+        100% { background-position: 0 0; }
+    }
 }

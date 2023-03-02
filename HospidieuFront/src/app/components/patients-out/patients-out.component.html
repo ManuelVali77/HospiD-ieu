@@ -1,28 +1,17 @@
-<app-header-dyn></app-header-dyn>
-<div class="background">
-    <div class="patients-list-container">
-        <h2>Liste des patients sortis</h2>
-        <div class="filters">
-            <button (click)="onShowPatientsIn()" class="in">Admis</button>
-            <button (click)="onShowPatientsOut()" class="current out">Sortis</button>
-        </div>
-        <table>
-            <thead>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Né.e le</th>
-                <th>Téléphone</th>
-                <th>Détails</th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let patient of patientsList">
-                    <td>{{ patient.name }}</td>
-                    <td>{{ patient.firstname }}</td>
-                    <td>{{ patient.birthDate | date : 'd/MM/YYYY' }}</td>
-                    <td>{{ patient.phone }}</td>
-                    <td><button (click)="onGoToPatient(patient.idPatient)">Voir</button></td>
-            </tbody>
-        </table>
-    </div>
-    <div class="image-container"></div>
-</div>
+<table>
+    <thead>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Né.e le</th>
+        <th>Téléphone</th>
+        <th>Détails</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let patient of patientsList | filter:searchText">
+            <td>{{ patient.name }}</td>
+            <td>{{ patient.firstname }}</td>
+            <td>{{ patient.birthDate | date : 'd/MM/YYYY' }}</td>
+            <td>{{ patient.phone }}</td>
+            <td class="voirPlus"><button (click)="onGoToPatient(patient.idPatient)">Voir</button></td>
+    </tbody>
+</table>

@@ -36,15 +36,14 @@ export class AddPatientComponent implements OnInit {
   savePatient(){
     this.patientService.createPatient(this.patient).subscribe( data =>{
 
-    },
-    error => error);
+    });
   }
 
   onSubmit(){
     if (this.form.valid) {
       console.log('form submitted');
       this.savePatient();
-      this.form.reset();
+      this.router.navigateByUrl('/patientsList/out')
     } else {
       this.form.markAllAsTouched();
     }

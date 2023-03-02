@@ -1,6 +1,7 @@
-<app-header-dyn></app-header-dyn>
+<app-header></app-header>
 
 <div class="connectContain">
+    <div class="overlay">
     <div class="formContain">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <h1>Connexion</h1>
@@ -26,4 +27,5 @@
             </div>
         </form>
     </div> 
+    </div>
 </div>

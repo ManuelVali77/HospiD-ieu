@@ -1,0 +1,101 @@
+<app-header-dyn></app-header-dyn>
+
+
+
+<div class="ajoutPContain">
+    <div class="overlay">
+        <div class="formContain">
+            <form [formGroup]="form"  (ngSubmit)="onSubmit()">
+                <h2><p>Patient: <span>{{ patient.firstname}} - {{patient.name}}</span></p></h2>
+                <div class="inputContain">
+                <div class="inputAjoutP">
+                    <label for="">Nom :</label>
+                    <input matInput= "patient.name" type="text" name="name" formControlName="name" [(ngModel)]="patient.name">
+
+                    <small *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched">
+                        This field is required
+                    </small>
+                </div>
+
+                
+                
+                <div class="inputAjoutP">
+                    <label for="">Prénom :</label>
+                    <input matInput= "patient.firstname" type="text" name="firstname" formControlName="firstname" [(ngModel)]="patient.firstname">
+
+                    <small *ngIf="form.get('firstname')?.hasError('required') && form.get('firstname')?.touched">
+                        This field is required
+                    </small>
+                </div>
+
+                </div>
+
+                <div class="inputContain">
+                    <div class="inputAjoutP">
+                        <label for="">Adresse :</label>
+                        <input matInput= "patient.address" type="text" name="address" formControlName="address" [(ngModel)]="patient.address">
+
+                        <small *ngIf="form.get('address')?.hasError('required') && form.get('address')?.touched">
+                            This field is required
+                        </small>
+                    </div>
+
+                    <div class="inputAjoutP">
+                        <label for="">Ville :</label>
+                        <input matInput= "patient.city" type="text" name="city" formControlName="city" [(ngModel)]="patient.city">
+
+                        <small *ngIf="form.get('city')?.hasError('required') && form.get('city')?.touched">
+                            This field is required
+                        </small>
+                    </div>
+                </div>
+
+                <div class="inputContain">
+                    <div class="inputAjoutP">
+                        <label for="">Code Postal :</label>
+                        <input matInput= "patient.postcode" type="text" name="postcode" formControlName="postcode" [(ngModel)]="patient.postcode">
+
+                        <small *ngIf="form.get('postcode')?.hasError('required') && form.get('postcode')?.touched">
+                            This field is required
+                        </small>
+                    </div>
+
+                    
+
+                    <div class="inputAjoutP">
+                        <label for="">Date de naissance :</label>
+                        <input matInput= "patient.birthDate" type="date" name="birth_date" formControlName="birthDate" [ngModel]="patient.birthDate | date:'yyyy-MM-dd'">
+
+                        <small *ngIf="form.get('birthDate')?.hasError('required') && form.get('birthDate')?.touched">
+                            This field is required
+                        </small>
+                    </div>
+ 
+                </div>
+                <div class="inputContain">
+                    <div class="inputAjoutP">
+                        <label for="">N° sécurité social :</label>
+                        <input matInput= "patient.securityNumber" type="text" name="security_number" formControlName="securityNumber" [(ngModel)]="patient.securityNumber">
+
+                        <small *ngIf="form.get('securityNumber')?.hasError('required') && form.get('securityNumber')?.touched">
+                            This field is required
+                        </small>
+                    </div>
+                    
+                    <div class="inputAjoutP">
+                        <label for="">Téléphone :</label>
+                        <input matInput= "patient.phone" formControlName="phone" type="tel" name="phone" [(ngModel)]="patient.phone">
+
+                        <small *ngIf="form.get('phone')?.hasError('required') && form.get('phone')?.touched">
+                            This field is required
+                        </small>
+                    </div>
+
+                </div>
+                <div class="buttonContain" >
+                    <button  type="submit">Ajouter</button>
+                </div>
+            </form>
+        </div> 
+    </div>
+

@@ -1,7 +1,6 @@
 package com.simplon.hospidieuBack.model;
 
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity

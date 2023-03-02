@@ -18,6 +18,16 @@ import { AddCommentComponent } from './components/add-comment/add-comment.compon
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AuthInterceptor } from './service/auth.interceptor';
+import {MatInputModule} from '@angular/material/input'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditPatientComponent } from './components/edit-patient/edit-patient.component';
+import { AdmissionComponent } from './components/admission/admission.component';
+import { RemoveFromBedComponent } from './components/remove-from-bed/remove-from-bed.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+registerLocaleData(localeFr, 'fr');
 
 @NgModule({
   declarations: [
@@ -32,7 +42,11 @@ import { AuthInterceptor } from './service/auth.interceptor';
     PatientsInComponent,
     PatientsOutComponent,
     PatientDetailComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    EditPatientComponent,
+    AdmissionComponent,
+    RemoveFromBedComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +55,10 @@ import { AuthInterceptor } from './service/auth.interceptor';
     ReactiveFormsModule,
     MatButtonModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
