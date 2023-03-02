@@ -2,9 +2,10 @@
 
 .wrapper {
     position: fixed;
+    display: flex;
     inset: 0;
     z-index: 10000;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, 0.4);
     padding: 40px;
 }
 
@@ -17,7 +18,7 @@
     margin: auto;
     max-width: 500px;
     min-width: 200px;
-    border-radius: 30px;
+    border-radius: 10px;
     box-shadow: 1px 1px 20px 3px darkgrey;
     background-color: $colorBaseFond;
     padding: 40px;
@@ -36,16 +37,24 @@
         border-radius: 7px;
         padding: 15px 30px;
         font-size: inherit;
+        border: none;
+        transition: .2s ease-in-out;
     }
     button:hover {
         cursor: pointer;
     }
     .submit {
         background-color: $colorBaseBlue;
+        &:hover {
+            background-color: rgb(72, 235, 194);
+        }
     }
     .cancel {
         background-color: $colorBaseRed;
         color: white;
+        &:hover {
+            background-color: rgb(235, 72, 72);
+        }
     }
 }
 
@@ -53,5 +62,8 @@ h2 {
     text-align: center;
     font-size: 1.5em;
     margin: 0 0 15px;
+    span {
+        font-style: italic;
+    }
 }
 
