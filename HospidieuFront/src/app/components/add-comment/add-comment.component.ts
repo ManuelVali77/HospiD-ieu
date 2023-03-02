@@ -19,13 +19,13 @@ export class AddCommentComponent implements OnInit {
 
   constructor (
     private formBuilder : FormBuilder,
-    private service : PatientService,
+    private patientService : PatientService,
     private dialogRef : MatDialogRef<AddCommentComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {patientId: number}
+    @Inject(MAT_DIALOG_DATA) public parentData: {patientId: number}
     ) {}
 
   ngOnInit(): void {
-    this.idPatient = this.data.patientId;
+    this.idPatient = this.parentData.patientId;
 
     this.commentForm = this.formBuilder.group({
       comment : ['', [
@@ -50,7 +50,7 @@ export class AddCommentComponent implements OnInit {
         date : new Date()
       }
       
-      this.service.saveMonitoring(this.monitoring).subscribe(() => console.log("Envoyé"));
+      this.patientService.saveMonitoring(this.monitoring).subscribe(() => console.log("Envoyé"));
       this.dialogRef.close();
     } else {
       this.commentForm.markAllAsTouched();

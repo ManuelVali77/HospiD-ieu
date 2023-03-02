@@ -20,6 +20,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditPatientComponent } from './components/edit-patient/edit-patient.component';
+import { AdmissionComponent } from './components/admission/admission.component';
+import { RemoveFromBedComponent } from './components/remove-from-bed/remove-from-bed.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { EditPatientComponent } from './components/edit-patient/edit-patient.com
     PatientsOutComponent,
     PatientDetailComponent,
     AddCommentComponent,
-    EditPatientComponent
+    EditPatientComponent,
+    AdmissionComponent,
+    RemoveFromBedComponent
   ],
   imports: [
     BrowserModule,
