@@ -25,6 +25,7 @@ import { RemoveFromBedComponent } from './components/remove-from-bed/remove-from
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
@@ -44,7 +45,7 @@ registerLocaleData(localeFr, 'fr');
     EditPatientComponent,
     AdmissionComponent,
     RemoveFromBedComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +56,8 @@ registerLocaleData(localeFr, 'fr');
     MatDialogModule,
     FormsModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

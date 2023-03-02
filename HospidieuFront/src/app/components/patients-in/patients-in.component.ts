@@ -11,6 +11,8 @@ import { PatientService } from 'src/app/services/patient.service';
 export class PatientsInComponent implements OnInit{
 
   patientsList !: PatientAndBed[];
+  title = 'Angular Search Using ng2-search-filter';
+  @Input() searchText!: any;
 
   constructor(private patientService : PatientService, private router : Router) {}
 

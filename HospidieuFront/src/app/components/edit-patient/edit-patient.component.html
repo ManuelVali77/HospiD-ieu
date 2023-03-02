@@ -6,7 +6,7 @@
     <div class="overlay">
         <div class="formContain">
             <form [formGroup]="form"  (ngSubmit)="onSubmit()">
-                <h1><p> Modifier le patient</p></h1>
+                <h2><p>Patient: <span>{{ patient.firstname}} - {{patient.name}}</span></p></h2>
                 <div class="inputContain">
                 <div class="inputAjoutP">
                     <label for="">Nom :</label>

@@ -2,6 +2,11 @@
 <div class="background">
     <div class="patients-list-container">
         <h2> Liste des utilisateurs</h2>
+
+        <div class="searchBar">
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Filtrer les résultats...">
+        </div>
+
             <table class="table table-striped">
                 <thead>
                     <th>Id</th>
@@ -12,7 +17,7 @@
                     <th> Rôle </th>
                 </thead>
                 <tbody>
-                    <tr *ngFor = "let user of users">
+                    <tr *ngFor = "let user of users | filter:searchText">
                         <td> {{ user.idUser}}</td>
                         <td> {{ user.firstName}}</td>
                         <td> {{ user.name}}</td>

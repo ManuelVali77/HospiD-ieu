@@ -7,7 +7,7 @@
         <th>Détails</th>
     </thead>
     <tbody>
-        <tr *ngFor="let patient of patientsList">
+        <tr *ngFor="let patient of patientsList | filter:searchText">
             <td>{{ patient.name }}</td>
             <td>{{ patient.firstname }}</td>
             <td>{{ patient.birthDate | date : 'd/MM/YYYY' }}</td>

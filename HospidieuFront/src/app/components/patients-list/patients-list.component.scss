@@ -11,8 +11,8 @@
 .image-container {
     padding-top: 80px;
     background-image: url('../../../assets/img/image-infirmiers.jpg');
-    background-size: contain;
-    background-position-x: -90%;
+    background-size: cover;
+    background-position-x: 30em;
     min-height: 100%;
     flex: 3;
     background-attachment: fixed;
@@ -24,6 +24,9 @@
     display: flex;
     flex-flow : column wrap;
     align-items: flex-start;
+    .tableContain {
+        width: 100%;
+    }
 }
 
 h2 {
@@ -33,13 +36,21 @@ h2 {
     text-align: center;
 }
 
-// Fixer la taille si on ajoute la barre de recherche
-.filters {
+.filtersContain {
     margin: 10px 0;
     display: flex;
     flex-flow: row nowrap;
     gap : 10px;
-    // width: 350px;
+    justify-content: space-between;
+    width: 100%;
+    .filters {
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .searchBar {
+        width: 50%;
+    }
     button {
         padding: 0.5em 1em 0.5em 1em;
         border-radius: 7px;
