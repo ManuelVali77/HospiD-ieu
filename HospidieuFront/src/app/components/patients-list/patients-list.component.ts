@@ -11,7 +11,8 @@ export class PatientsListComponent {
   show !: string;
 
   constructor(
-    private route : ActivatedRoute
+    private route : ActivatedRoute,
+    private router : Router
   ) {}
 
   ngOnInit() : void {
@@ -21,10 +22,12 @@ export class PatientsListComponent {
 
   onShowPatientsIn() : void {
     this.show = 'in';
+    this.router.navigateByUrl("patientsList/" + this.show);
   }
 
   onShowPatientsOut() : void {
     this.show = 'out';
+    this.router.navigateByUrl("patientsList/" + this.show);
   }
 
 }

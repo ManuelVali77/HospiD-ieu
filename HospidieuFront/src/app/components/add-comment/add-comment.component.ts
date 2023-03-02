@@ -42,6 +42,7 @@ export class AddCommentComponent implements OnInit {
 
     if (this.commentForm.valid) {
       const data = this.commentForm.value;
+      console.log(data);
       
       this.monitoring = {
         comment : data["comment"],
@@ -49,10 +50,11 @@ export class AddCommentComponent implements OnInit {
         idPatient : this.idPatient,
         date : new Date()
       }
+      console.log(this.monitoring);
       
-      this.patientService.saveMonitoring(this.monitoring).subscribe(() => console.log("Envoyé"));
+      this.patientService.saveMonitoring(this.monitoring).subscribe(() =>
+      window.location.reload());
       this.dialogRef.close();
-      window.location.reload();
     } else {
       this.commentForm.markAllAsTouched();
       console.log("Non envoyé");
