@@ -2,9 +2,14 @@
 <div class="background">
     <div class="patients-list-container">
         <h2>Liste des patients admis</h2>
-        <div class="filters">
-            <button (click)="onShowPatientsIn()" class="current in">Admis</button>
-            <button (click)="onShowPatientsOut()" class="out">Sortis</button>
+        <div class="filtersContain">
+            <div class="filters">
+                <button (click)="onShowPatientsIn()" class="current in">Admis</button>
+                <button (click)="onShowPatientsOut()" class="out">Sortis</button>
+            </div>
+            <div class="searchBar">
+                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Filtrer les résultats...">
+            </div>
         </div>
         <table>
             <thead>
@@ -16,7 +21,7 @@
                 <th>Détails</th>
             </thead>
             <tbody>
-                <tr *ngFor="let patient of patientsList">
+                <tr *ngFor="let patient of patientsList | filter:searchText">
                     <td>{{ patient.name }}</td>
                     <td>{{ patient.firstname }}</td>
                     <td>{{ patient.department }}</td>

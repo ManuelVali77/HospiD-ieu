@@ -50,7 +50,6 @@ public class UserServiceImpl implements UserService {
             userDto.setName(user.getName());
             userDto.setFirstName(user.getFirstName());
             userDto.setMail(user.getMail());
-            userDto.setPassword(user.getPassword());
             userDto.setIdUser(user.getIdUser());
             usersDto.add(userDto);
         }

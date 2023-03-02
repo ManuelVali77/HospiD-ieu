@@ -1,7 +1,7 @@
 @import '../../../styles.scss';
 
 .ajoutPContain{
-    background-image: url('../../../assets/img/ajoutBg.jpg');
+    background-image: url('../../../assets/img/bgModifier.jpg');
     height: 100vh;
     background-size: cover;
         .formContain {
@@ -14,16 +14,19 @@
                 display: flex;
                 flex-direction: column;
                 background-color: rgba($colorBaseFond, 0.90);
-                height: 440px;
-                width: 400px;
-                padding: 2em 3em 2em 3em;
+                height: 500px;
+                width: 500px;
+                padding: 1em 3em 1em 3em;
                 border-radius: 10px;
                 justify-content: space-between;
                 margin-top: 5em;
-                h1 {
+                h2 {
                     margin: 0;
                     text-align: center;
                     font-family: $roboto-slab;
+                    span {
+                        font-style: italic;
+                    }
                 }
                 .inputContain {
                     display: flex;
