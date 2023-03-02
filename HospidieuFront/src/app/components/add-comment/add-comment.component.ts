@@ -48,7 +48,8 @@ export class AddCommentComponent implements OnInit {
         comment : data["comment"],
         symptom : data["symptom"],
         idPatient : this.idPatient,
-        date : new Date()
+        date : new Date(),
+        userMail : sessionStorage.getItem('mail')
       }
       console.log(this.monitoring);
       

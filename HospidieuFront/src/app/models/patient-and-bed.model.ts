@@ -8,4 +8,5 @@ export class PatientAndBed {
     room ?: number;
     bed ?: number;
     idBed ?: number;
+    userMail ?: string | null;
 }

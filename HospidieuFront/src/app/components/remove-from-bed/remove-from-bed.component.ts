@@ -20,7 +20,7 @@ export class RemoveFromBedComponent {
 
   ngOnInit() : void {
     this.patient = this.parentData.patient;
-    console.log(this.parentData);
+    this.patient.userMail = sessionStorage.getItem('mail');
     console.log(this.patient);
   }
 

@@ -3,5 +3,5 @@ export class Monitoring {
     symptom !: string;
     date !: Date;
     idPatient !: number;
-    idUser ?: number;
+    userMail ?: string | null;
 }
