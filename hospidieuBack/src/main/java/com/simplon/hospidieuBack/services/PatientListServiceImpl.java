@@ -87,5 +87,9 @@ public class PatientListServiceImpl implements PatientListService {
 		return patientsList;
 	}
 
-
+	@Override
+	public Patient getPatient(int id) {
+		Patient patient = patientRepo.findPatientsByIdPatient(id);
+		return patient;
+	}
 }

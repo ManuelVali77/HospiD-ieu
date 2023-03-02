@@ -54,6 +54,11 @@ export class PatientDetailComponent implements OnInit {
     this.router.navigateByUrl("/admission/" + this.patientId);
   }
 
+  onEditPatient(id : number) : void {
+    this.router.navigateByUrl("editPatient/" + id);
+    
+  }
+
   onOuting() : void {
     this.dialogConfig.id = "removeBed";
     this.dialogConfig.data = {

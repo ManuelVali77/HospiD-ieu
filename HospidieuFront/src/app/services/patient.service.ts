@@ -11,6 +11,9 @@ import { Bed } from '../models/bed.model';
     providedIn: 'root'
 })
 export class PatientService {
+  updatePatient(patient: Patient) {
+    throw new Error('Method not implemented.');
+  }
 
   private baseUrl = "http://localhost:8080/";
 
@@ -44,6 +47,10 @@ export class PatientService {
       return this.http.get<Information[]>(`${this.baseUrl}patient/${id}/history`);
     }
 
+
+    getPatient(id : number): Observable<Patient>{
+      return this.http.get<Patient>(`${this.baseUrl}editPatient/${id}`);
+    }
 
   getEmptyBeds() : Observable<Bed[]> {
     return this.http.get<Bed[]>(`${this.baseUrl}admission`)

@@ -36,8 +36,7 @@ export class AddPatientComponent implements OnInit {
   savePatient(){
     this.patientService.createPatient(this.patient).subscribe( data =>{
 
-    },
-    error => error);
+    });
   }
 
   onSubmit(){

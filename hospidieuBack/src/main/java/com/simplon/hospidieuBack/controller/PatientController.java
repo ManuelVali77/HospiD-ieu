@@ -118,4 +118,9 @@ public class PatientController {
 	public void dismissPatient(@RequestBody PatientInBedDto patientInBed) {
 		admissionService.dismissPatientFromBed(patientInBed);
 	}
+	
+	@GetMapping("editPatient/{id}")
+	public Patient getPatient(@PathVariable(value="id") int id) {
+		return this.patientListService.getPatient(id);
+	}
 }
