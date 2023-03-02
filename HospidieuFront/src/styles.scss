@@ -29,8 +29,9 @@ input, textarea {
 }
 
 .overlay {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
+    width: 100%;
 }
 
 select {
@@ -43,3 +44,15 @@ select {
     }
 }
 
+label {
+    margin: 0;
+}
+
+small {
+    color: red;
+}
+button {
+    &:focus {
+        outline: none;
+    }
+}

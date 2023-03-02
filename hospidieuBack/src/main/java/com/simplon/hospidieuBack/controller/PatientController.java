@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simplon.hospidieuBack.model.Bed;
+import com.simplon.hospidieuBack.model.InformationDto;
 import com.simplon.hospidieuBack.model.Monitoring;
 import com.simplon.hospidieuBack.model.MonitoringDto;
 import com.simplon.hospidieuBack.model.Bed;
@@ -24,6 +25,7 @@ import com.simplon.hospidieuBack.services.PatientConvert;
 import com.simplon.hospidieuBack.services.PatientListService;
 import com.simplon.hospidieuBack.services.AddPatientService;
 import com.simplon.hospidieuBack.services.AdmissionService;
+import com.simplon.hospidieuBack.services.InformationConvert;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -54,7 +56,7 @@ public class PatientController {
 	public List<Patient> getAllInactivePatients() {
 		return this.patientListService.getInactivePatients();
 	}
-
+	
 	@PostMapping("comment/save")
 	public void saveMonitoring(@RequestBody MonitoringDto newMonitoring) {
 		this.addCommentService.saveNewMonitoring(newMonitoring);
@@ -65,7 +67,19 @@ public class PatientController {
 
 		this.addPatientService.addPatient(patient);
 	}
-
+	
+	@GetMapping("patient/{idPatient}")
+	public PatientInBedDto getPatientInBedById(@PathVariable("idPatient") String idPatient) {
+		try {
+			int id = Integer.parseInt(idPatient);
+			return this.patientListService.getBedsWithPatientId(id);
+		}
+		catch (NumberFormatException ex) {
+			ex.printStackTrace();
+		}
+		return null;
+	}
+	
 	@GetMapping("/admission")
 	public List<Bed> getEmptyBeds() {
 		return admissionService.getEmptyBeds();
@@ -80,6 +94,19 @@ public class PatientController {
 			ex.printStackTrace();
 		}
 		return null;
+	}
+	
+	@GetMapping("patient/{idPatient}/history")
+	public List<InformationDto> getMonitoringByIdPatient(@PathVariable("idPatient") String idPatient) {
+		try {
+			int id = Integer.parseInt(idPatient);
+			return this.patientListService.getMonitoringByPatient(id);
+		}
+		catch (NumberFormatException ex) {
+			ex.printStackTrace();
+		}
+		return null;
+		
 	}
 	
 	@PutMapping("admission/save")
