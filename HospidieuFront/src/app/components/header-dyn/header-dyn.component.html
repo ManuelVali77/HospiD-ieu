@@ -4,67 +4,22 @@
     </div>
 
     <ul class="listNavAdmin">
-        <li routerLink="/user" class="liParentAdmin">Utilisateurs
+        <li *ngIf="isAdmin" routerLink="/user" class="liParentAdmin">Utilisateurs
             <ul class="sousAdmin">
                 <li routerLink="/addUser">Ajouter un utilisateur</li>
-                <!-- Optionnel : -->
-                <!-- <li routerLink="/user">Modifier un utilisateur</li> -->
             </ul>
         </li>
 
         <li routerLink="/patientsList/in" class="liParentPatient">Patients
             <ul class="sousPatient">
-                <li routerLink="/addPatient">Ajouter un patient</li>
-                <!-- TODO -->
+                <li *ngIf="isSecretaire" routerLink="/addPatient">Ajouter un patient</li>
                 <li routerLink="/editPatient">Modifier un patient</li>
             </ul>
         </li>
 
-        <li routerLink="/logout" class="liLogout">
+        <li (click)="onLogout()" class="liLogout">
             <img src="../../../assets/img/logout.png" alt="Logout">
         </li>
     </ul>
-    <p class="roleInfo">ManuelV/Administrateur</p>
+    <p class="roleInfo">{{mailUser}}/{{displayRole}}</p>
 </nav>
-
-<!--<nav class="headerDynInfirm">
-    <div class="containLeftNav">
-        <a href="/">
-            <img src='../../../assets/img/logo_transparent.png' alt="Logo HospiD'ieu">
-        </a>
-    </div>
-    <ul class="listNavInf">
-        <li class="liParentPatient">
-            <a class="userNav">Patient</a>
-        </li>
-        <li class="liLogout">
-            <img src="../../../assets/img/logout.png" alt="Logout">
-        </li>
-    </ul>
-    <p class="roleInfo">ManuelV/Infirmier</p>
-</nav>
--->
-
-<!--<nav class="headerDynSecretM">
-    <div class="containLeftNav">
-        <a href="/">
-            <img src='../../../assets/img/logo_transparent.png' alt="Logo HospiD'ieu">
-        </a>
-    </div>
-    <ul class="listNavSm">
-
-        <li class="liParentPatient">
-            <a class="userNav">Patient</a>
-            <ul class="sousPatient">
-                <li><a href=""></a>Ajouter un Patient</li>
-                <li><a href=""></a>Modifier un Patient</li>
-            </ul>
-        </li>
-  
-        <li class="liLogout">
-            <img src="../../../assets/img/logout.png" alt="Logout">
-        </li>
-    </ul>
-    <p class="roleInfo">ManuelV/Secrétaire médical</p>
-</nav>
--->

@@ -22,7 +22,6 @@ public class UserServiceImpl implements UserService {
 	private RoleRepository roleRepository;
 	private PasswordEncoder passwordEncoder;
 
-
 	@Override
 	public List<User> getAllUser() {
 		return userRepository.findAll();
@@ -35,27 +34,27 @@ public class UserServiceImpl implements UserService {
 		this.passwordEncoder = passwordEncoder;
 	}
 
-@Override
-    @GetMapping("user")
-    public List<UserDto> findAllUserDto() {
-        List<UserDto> usersDto = new ArrayList();
-        List<User> users = userRepository.findAll();
-        for(User user : users) {
-            UserDto userDto = new UserDto();
-            List<Role> roles = user.getRoles();
-            for (Role role : roles) {
-                String roleString = role.getRoleName();
-                userDto.setRole(roleString);
-            }
-            userDto.setName(user.getName());
-            userDto.setFirstName(user.getFirstName());
-            userDto.setMail(user.getMail());
-            userDto.setPassword(user.getPassword());
-            userDto.setIdUser(user.getIdUser());
-            usersDto.add(userDto);
-        }
-        return usersDto;
-    }
+	@Override
+	@GetMapping("user")
+	public List<UserDto> findAllUserDto() {
+		List<UserDto> usersDto = new ArrayList();
+		List<User> users = userRepository.findAll();
+		for (User user : users) {
+			UserDto userDto = new UserDto();
+			List<Role> roles = user.getRoles();
+			for (Role role : roles) {
+				String roleString = role.getRoleName();
+				userDto.setRole(roleString);
+			}
+			userDto.setName(user.getName());
+			userDto.setFirstName(user.getFirstName());
+			userDto.setMail(user.getMail());
+			userDto.setPassword(user.getPassword());
+			userDto.setIdUser(user.getIdUser());
+			usersDto.add(userDto);
+		}
+		return usersDto;
+	}
 
 	@Override
 	public void saveUser(UserDto userDto) {

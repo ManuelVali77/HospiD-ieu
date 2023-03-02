@@ -2,18 +2,27 @@
 
 <div class="connectContain">
     <div class="formContain">
-        <form action="">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <h1>Connexion</h1>
             <div class="inputConnexion">
                 <label for="">Identifiant :</label>
-                <input placeholder="Veuillez saisir votre identifiant" type="text">
+                <input placeholder="Veuillez saisir votre identifiant" type="text" id="mail" formControlName="mail"/>
+                <small *ngIf="loginForm.get('mail')?.hasError('required') && loginForm.get('mail')?.touched">
+                  Email requis
+                </small>
+                <small *ngIf="loginForm.get('mail')?.hasError('email') && loginForm.get('mail')?.touched">
+                  Email invalide
+                </small>
             </div>
             <div class="inputConnexion">
                 <label for="">Mot de passe :</label>
-                <input placeholder="Veuillez saisir votre mot de passe" type="password">
+                <input placeholder="Veuillez saisir votre mot de passe" type="password" id="password" formControlName="password"/>
+                <small *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+                  Mot de passe requis
+                </small>
             </div>
             <div class="buttonContain" >
-                <button>Connexion</button>
+                <button type="submit">Connexion</button>
             </div>
         </form>
     </div> 
