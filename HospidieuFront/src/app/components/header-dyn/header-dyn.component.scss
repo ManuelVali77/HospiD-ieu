@@ -95,13 +95,16 @@
             align-items: center;
             img {
                 width: 30px;
+                transition: .2s ease-in-out;
+                &:hover {
+                    width: 35px;
+                }
             }
         }
         
     }
     .roleInfo {
         position: absolute;
-        top: -7px;
         right: 0;
         font-size: 10px;
     }
@@ -201,13 +204,16 @@
             align-items: center;
             img {
                 width: 30px;
+                transition: .2s ease-in-out;
+                &:hover {
+                    width: 35px;
+                }
             }
         }
         
     }
     .roleInfo {
         position: absolute;
-        top: -7px;
         right: 0;
         font-size: 10px;
     }
@@ -307,13 +313,16 @@
             align-items: center;
             img {
                 width: 30px;
+                transition: .2s ease-in-out;
+                &:hover {
+                    width: 35px;
+                }
             }
         }
         
     }
     .roleInfo {
         position: absolute;
-        top: -7px;
         right: 0;
         font-size: 10px;
     }

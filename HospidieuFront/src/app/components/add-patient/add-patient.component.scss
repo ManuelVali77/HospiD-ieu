@@ -14,12 +14,13 @@
                 display: flex;
                 flex-direction: column;
                 background-color: rgba($colorBaseFond, 0.90);
-                height: 440px;
-                width: 400px;
-                padding: 2em 3em 2em 3em;
+                min-height: 490px;
+                min-width: 500px;
+                padding: 1em 3em 1em 3em;
                 border-radius: 10px;
                 justify-content: space-between;
                 margin-top: 5em;
+                gap: 1.2em;
                 h1 {
                     margin: 0;
                     text-align: center;
@@ -31,12 +32,17 @@
                     .inputAjoutP {
                         display: flex;
                         flex-direction: column;
-                        gap: .5em;
+                        position: relative;
                         img {
                             width: 20px;
                         }
                         input {
                             width: 170px;
+                        }
+                        small {
+                            position: absolute;
+                            top: 65px;
+                            font-size: 11px;
                         }
                     }
                 }
@@ -58,6 +64,7 @@
                         background-size: 200% 100%;
                         background-position: 100% 0;
                         transition: background-position .5s;
+                        margin-top: 1em;
                         &:hover {
                             background-position: 0 0;
                         }

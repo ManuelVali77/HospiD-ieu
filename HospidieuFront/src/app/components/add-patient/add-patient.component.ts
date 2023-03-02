@@ -43,7 +43,7 @@ export class AddPatientComponent implements OnInit {
     if (this.form.valid) {
       console.log('form submitted');
       this.savePatient();
-      this.form.reset();
+      this.router.navigateByUrl('/patientsList/out')
     } else {
       this.form.markAllAsTouched();
     }

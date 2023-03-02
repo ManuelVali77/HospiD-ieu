@@ -14,4 +14,5 @@ public interface BedRepository extends JpaRepository<Bed, Integer> {
 	List<Bed> findByPatientIsNull();
 	Bed findBedsByIdBed(int idBed);
 	Bed findBedsByPatient(Patient patient);
+
 }

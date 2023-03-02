@@ -28,6 +28,7 @@ export class RemoveFromBedComponent {
   onConfirm() : void {
     this.patientService.dismissPatient(this.patient).subscribe(() => console.log("Envoyé"));
     this.dialogRef.close();
+    window.location.reload();
   }
 
   onCancel() : void {
