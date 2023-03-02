@@ -52,6 +52,7 @@ export class AddCommentComponent implements OnInit {
       
       this.patientService.saveMonitoring(this.monitoring).subscribe(() => console.log("Envoyé"));
       this.dialogRef.close();
+      window.location.reload();
     } else {
       this.commentForm.markAllAsTouched();
       console.log("Non envoyé");

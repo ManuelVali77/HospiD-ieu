@@ -92,11 +92,10 @@
                     .modify {
                         background-color: $colorBasePurple;
                         transition: .2s ease-in-out;
+                        color: white;
+                        font-weight: bold;
                         &:hover {
                             background-color: purple;
-                        }
-                        a{
-                            color: white;
                         }
                     }
                 }

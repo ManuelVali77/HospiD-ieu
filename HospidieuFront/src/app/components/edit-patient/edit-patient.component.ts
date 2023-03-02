@@ -70,7 +70,7 @@ export class EditPatientComponent {
         ...this.form.value
       }
       this.savePatient();
-      this.router.navigateByUrl('/patient/' + this.patientId)
+      this.router.navigateByUrl('/patient/' + this.patientId+"/history")
     } else {
       this.form.markAllAsTouched();
     }

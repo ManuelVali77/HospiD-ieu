@@ -26,7 +26,7 @@
             <div class="buttonSuvi">
                 <button *ngIf="patient.bed == 0" (click)="onAssignBed()" class="entree">Entrée</button>
                 <button *ngIf="patient.bed != 0" (click)="onOuting()" class="sortie">Sortie</button>
-                <button class="modify" (click)="onEditPatient(patientId)"><a href="">Modifier</a></button>
+                <button class="modify" (click)="onEditPatient(patientId)">Modifier</button>
             </div>
         </div>
     </div>
@@ -47,7 +47,3 @@
         </div>
     </div>
 </div>
-
-<button (click)="onAddComment()">Ajouter un commentaire</button>
-<button (click)="onAssignBed()">Entrée</button>
-<button (click)="onOuting()">Sortie</button>
