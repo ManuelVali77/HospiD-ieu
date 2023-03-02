@@ -112,6 +112,6 @@ export class AdmissionComponent {
   }
 
   onCancel() : void {
-    this.router.navigateByUrl('/patient/' + this.idPatient);
+    this.router.navigateByUrl('/patient/' + this.idPatient+"/history");
   }
 }

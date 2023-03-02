@@ -29,7 +29,7 @@ export class PatientsOutComponent implements OnInit {
   }
 
   onGoToPatient(id : number) : void {
-    this.router.navigateByUrl("patient/" + id);
+    this.router.navigateByUrl("patient/" + id+"/history");
   }
 
 }

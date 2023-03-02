@@ -17,8 +17,15 @@ import { PatientDetailComponent } from './components/patient-detail/patient-deta
 import { AddCommentComponent } from './components/add-comment/add-comment.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditPatientComponent } from './components/edit-patient/edit-patient.component';
 import { AdmissionComponent } from './components/admission/admission.component';
 import { RemoveFromBedComponent } from './components/remove-from-bed/remove-from-bed.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+registerLocaleData(localeFr, 'fr');
 
 @NgModule({
   declarations: [
@@ -34,8 +41,10 @@ import { RemoveFromBedComponent } from './components/remove-from-bed/remove-from
     PatientsOutComponent,
     PatientDetailComponent,
     AddCommentComponent,
+    EditPatientComponent,
     AdmissionComponent,
-    RemoveFromBedComponent
+    RemoveFromBedComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +53,9 @@ import { RemoveFromBedComponent } from './components/remove-from-bed/remove-from
     ReactiveFormsModule,
     MatButtonModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

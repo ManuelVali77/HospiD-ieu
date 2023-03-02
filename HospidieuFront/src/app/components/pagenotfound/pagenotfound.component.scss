@@ -1,0 +1,48 @@
+@import '../../../styles.scss';
+
+.pageNotFoundContain {
+    height: 100vh;
+    background-image: url('../../../assets/img/pageNotFound.jpg');
+    background-size: cover;
+    background-position: left;
+    .PgnContain {
+        height: 100%;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-left: 8em;
+        .error {
+            padding: 2em;
+            background-color: rgba(217, 217, 217, 0.9);
+            height: 65%;
+            margin-top: 3em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            gap: 2em;
+            width: 35%;
+            h2 {
+                font-size: 3em;
+                font-weight: bold;
+            }
+            p {
+                font-size: 1.1em;
+                text-align: center;
+            }
+            a {
+                background-color: $colorBaseBlue;
+                padding: 1em 1.5em 1em 1.5em;
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+                border-radius: 10px;
+                transition: .2s ease-in-out;
+                &:hover {
+                    background-color: rgb(71, 246, 190);
+                }
+            }
+        }
+    }
+}

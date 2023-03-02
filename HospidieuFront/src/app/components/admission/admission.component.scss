@@ -7,14 +7,18 @@
 
 .form-container {
     background-color: $colorBaseFond;
-    background-image: url('../../../assets/img/image_infirmiers.jpg');
+    background-image: url('../../../assets/img/bg_admi.jpg');
     background-size: cover;
-    min-height: 100vh;
+    min-height: calc(100vh - 80px);
+    background-position: center;
     // padding: 80px 20px 20px;
     padding-top: 80px;
     display: flex;
     flex-flow : column wrap;
     align-items: center;
+    .overlay {
+        height: calc(100vh - 80px)!important;
+    }
 }
 
 form {
@@ -22,15 +26,25 @@ form {
     flex-flow: column nowrap;
     text-align: center;
     margin: auto;
-    padding: 20px 30px;
+    padding: 2em 3em 2em 3em;
     max-width: 500px;
     min-width: 200px;
-    border-radius: 30px;
+    border-radius: 10px;
+    margin-top: 2em;
     box-shadow: 1px 1px 20px 3px darkgrey;
-    background-color: $colorBaseFond;
+    background-color: rgba($colorBaseFond,0.9);
+    gap: 0.2em;
+    h2 {
+        span {
+            font-style: italic;
+            font-weight: bold;
+        }
+    }
     label {
         margin: 5px;
         font-size: 1.1em;
+        text-align: left;
+        font-weight: bold;
     }
 }
 
@@ -44,16 +58,25 @@ form {
         border-radius: 7px;
         padding: 15px 30px;
         font-size: inherit;
+        border: none;
+        transition: .2s ease-in-out;
+        font-weight: bold;
     }
     button:hover {
         cursor: pointer;
     }
     .submit {
         background-color: $colorBaseBlue;
+        &:hover {
+            background-color: rgb(29 189 111);
+        }
     }
     .cancel {
         background-color: $colorBaseRed;
         color: white;
+        &:hover{
+            background-color: #e82828;
+        }
     }
 }
 
@@ -69,6 +92,6 @@ form {
 h2 {
     text-align: center;
     margin: 0 0 15px;
-    font-size: 22px;
+    font-size: 25px;
 }
 

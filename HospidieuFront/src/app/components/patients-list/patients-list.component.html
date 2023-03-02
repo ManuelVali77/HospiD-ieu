@@ -6,6 +6,7 @@
             <button (click)="onShowPatientsIn()" class="in" [ngClass]="{'current' : show == 'in'}">Admis</button>
             <button (click)="onShowPatientsOut()" class="out" [ngClass]="{'current' : show == 'out'}">Sortis</button>
         </div>
+        <div>
             <app-patients-in *ngIf="show == 'in'"></app-patients-in>
             <app-patients-out *ngIf="show == 'out'"></app-patients-out>
         </div>
