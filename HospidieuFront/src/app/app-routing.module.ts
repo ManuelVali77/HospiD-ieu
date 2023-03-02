@@ -8,6 +8,7 @@ import { PatientDetailComponent } from './components/patient-detail/patient-deta
 import { PatientsInComponent } from './components/patients-in/patients-in.component';
 import { PatientsListComponent } from './components/patients-list/patients-list.component';
 import { PatientsOutComponent } from './components/patients-out/patients-out.component';
+import { EditPatientComponent } from './components/edit-patient/edit-patient.component';
 import { AdmissionComponent } from './components/admission/admission.component';
 
 const routes: Routes = [
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path : "patientsList/in", component : PatientsInComponent },
   { path : "patientsList/out", component : PatientsOutComponent },
   { path : "patient/:id", component : PatientDetailComponent },
+  { path : "editPatient/:id", component : EditPatientComponent },
+  
   { path : "admission/:id", component : AdmissionComponent },
 
   // Redirections :

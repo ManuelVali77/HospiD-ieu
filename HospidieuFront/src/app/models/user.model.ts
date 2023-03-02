@@ -1,8 +1,8 @@
 export class User {
     idUser!: number;
-    firstname!: string;
+    firstName!: string;
     name!: string;
-    email!: string;
+    mail!: string;
     password !: string;
     users_roles !: string;
     role !:Array<any>;

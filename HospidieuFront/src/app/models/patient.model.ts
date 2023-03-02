@@ -1,5 +1,5 @@
 export class Patient {
-    ID_patient ?: number;
+    idPatient ?: number;
     name !: string;
     firstname !: string;
     birthDate !: Date;

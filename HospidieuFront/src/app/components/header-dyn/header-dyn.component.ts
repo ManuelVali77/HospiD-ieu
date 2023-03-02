@@ -9,7 +9,4 @@ import { Router } from '@angular/router';
 export class HeaderDynComponent {
   constructor(private route: Router) {}
 
-  goToAddUser() {
-    this.route.navigate(['/addUser']);
-  }
 }

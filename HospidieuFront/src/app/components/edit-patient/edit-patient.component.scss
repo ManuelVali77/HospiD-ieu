@@ -1,0 +1,68 @@
+@import '../../../styles.scss';
+
+.ajoutPContain{
+    background-image: url('../../../assets/img/ajoutBg.jpg');
+    height: 100vh;
+    background-size: cover;
+        .formContain {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            justify-content: center;
+            form {
+                display: flex;
+                flex-direction: column;
+                background-color: rgba($colorBaseFond, 0.90);
+                height: 440px;
+                width: 400px;
+                padding: 2em 3em 2em 3em;
+                border-radius: 10px;
+                justify-content: space-between;
+                margin-top: 5em;
+                h1 {
+                    margin: 0;
+                    text-align: center;
+                    font-family: $roboto-slab;
+                }
+                .inputContain {
+                    display: flex;
+                    justify-content: space-between;
+                    .inputAjoutP {
+                        display: flex;
+                        flex-direction: column;
+                        gap: .5em;
+                        img {
+                            width: 20px;
+                        }
+                        input {
+                            width: 170px;
+                        }
+                    }
+                }
+                
+                .buttonContain {
+                    display: flex;
+                    justify-content: center;
+                    button {
+                        padding: .7em .4em .7em .4em;
+                        width: 50%;
+                        border: none;
+                        cursor: pointer;
+                        border-radius: 50px;
+                        font-size: 1em;
+                        color: white;
+                        background-color: $colorBaseRed;
+                        font-weight: bold;
+                        background: linear-gradient(120deg, $colorBaseRed, $colorBaseBlue, $colorBasePurple);
+                        background-size: 200% 100%;
+                        background-position: 100% 0;
+                        transition: background-position .5s;
+                        &:hover {
+                            background-position: 0 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
