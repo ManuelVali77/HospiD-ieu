@@ -9,6 +9,7 @@ import { PatientsInComponent } from './components/patients-in/patients-in.compon
 import { PatientsListComponent } from './components/patients-list/patients-list.component';
 import { PatientsOutComponent } from './components/patients-out/patients-out.component';
 import { AdmissionComponent } from './components/admission/admission.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   {path: 'login', component: ConnexionComponent},
@@ -23,7 +24,11 @@ const routes: Routes = [
   { path : "admission/:id", component : AdmissionComponent },
 
   // Redirections :
-  { path : "", redirectTo : '/login', pathMatch : 'full' }
+  { path : "", redirectTo : '/login', pathMatch : 'full' },
+
+  //Page 404 :
+  { path: '**', pathMatch: 'full', 
+        component: PagenotfoundComponent },
 ];
 
 @NgModule({

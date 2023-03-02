@@ -3,7 +3,7 @@
     <div class="overlay">
         <form [formGroup]="admitForm">
             <h2 *ngIf="patient">
-                Entrée du patient : {{ patient.firstname }} {{ patient.name }}
+                Entrée patient : <span>{{ patient.firstname }} - {{ patient.name }}</span>
             </h2>
             <label>Service :</label>
             <select #deptSelect formControlName = "department" (change)="onSelectDept(deptSelect.value)">

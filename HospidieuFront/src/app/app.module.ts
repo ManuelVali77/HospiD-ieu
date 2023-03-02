@@ -21,6 +21,7 @@ import { AdmissionComponent } from './components/admission/admission.component';
 import { RemoveFromBedComponent } from './components/remove-from-bed/remove-from-bed.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
@@ -38,7 +39,8 @@ registerLocaleData(localeFr, 'fr');
     PatientDetailComponent,
     AddCommentComponent,
     AdmissionComponent,
-    RemoveFromBedComponent
+    RemoveFromBedComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
