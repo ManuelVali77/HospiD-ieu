@@ -11,7 +11,7 @@
                 <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Filtrer les résultats...">
             </div>
         </div>
-        <div>
+        <div class="tableContain">
             <app-patients-in [searchText]="searchText" *ngIf="show == 'in'"></app-patients-in>
             <app-patients-out [searchText]="searchText" *ngIf="show == 'out'"></app-patients-out>
         </div>
