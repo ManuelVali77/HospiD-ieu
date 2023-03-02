@@ -4,8 +4,9 @@
         <h2>Liste des patients admis</h2>
         <div class="filtersContain">
             <div class="filters">
-                <button (click)="onShowPatientsIn()" class="in">Admis</button>
-                <button (click)="onShowPatientsOut()" class="current out">Sortis</button>
+                <button (click)="onShowPatientsIn()" class="in" [ngClass]="{'current' : show == 'in'}"
+                >Admis</button>
+                <button (click)="onShowPatientsOut()" [ngClass]="{'current' : show == 'out'}" class="out">Sortis</button>
             </div>
             <div class="searchBar">
                 <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Filtrer les résultats...">
@@ -17,3 +18,4 @@
         </div>
     </div>
 <div class="image-container"></div>
+
