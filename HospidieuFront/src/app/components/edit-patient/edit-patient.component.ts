@@ -65,15 +65,15 @@ export class EditPatientComponent {
   onSubmit(){
     if (this.form.valid) {
       console.log('form submitted');
+      this.patient = {
+        idPatient : this.patientId,
+        ...this.form.value
+      }
       this.savePatient();
-      this.form.reset();
+      this.router.navigateByUrl('/patient/' + this.patientId)
     } else {
       this.form.markAllAsTouched();
     }
-    
   }
-  updatePatient(){
-
-  }
-
 }
+

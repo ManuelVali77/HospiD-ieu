@@ -12,4 +12,5 @@ public interface PatientListService {
 	List<Patient> getAllPatients();
 	List<Bed> getBedsWithPatients();
 	List<Patient> getInactivePatients();
+	Patient getPatient(int id);
 }

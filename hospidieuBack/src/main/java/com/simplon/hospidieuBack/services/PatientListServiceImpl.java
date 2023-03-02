@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.simplon.hospidieuBack.model.Bed;
+import com.simplon.hospidieuBack.model.Monitoring;
+import com.simplon.hospidieuBack.model.MonitoringDto;
 import com.simplon.hospidieuBack.model.Patient;
 import com.simplon.hospidieuBack.model.PatientInBedDto;
 import com.simplon.hospidieuBack.repository.BedRepository;
@@ -51,6 +53,10 @@ public class PatientListServiceImpl implements PatientListService {
 		}
 		return patientsList;
 	}
-	
-	
+
+	@Override
+	public Patient getPatient(int id) {
+		Patient patient = patientRepo.findPatientsByIdPatient(id);
+		return patient;
+	}
 }

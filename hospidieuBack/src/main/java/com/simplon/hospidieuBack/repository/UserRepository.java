@@ -8,6 +8,6 @@ import com.simplon.hospidieuBack.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 	
-
+	User findByMail(String mail);
 	
 }
