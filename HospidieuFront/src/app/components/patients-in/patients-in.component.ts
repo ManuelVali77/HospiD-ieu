@@ -12,7 +12,7 @@ export class PatientsInComponent implements OnInit{
 
   patientsList !: PatientAndBed[];
   title = 'Angular Search Using ng2-search-filter';
-  searchText!: any;
+  @Input() searchText!: any;
 
   constructor(private patientService : PatientService, private router : Router) {}
 

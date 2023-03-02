@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PatientsListComponent {
 
   show !: string;
+  searchText!: any;
 
   constructor(
     private route : ActivatedRoute,

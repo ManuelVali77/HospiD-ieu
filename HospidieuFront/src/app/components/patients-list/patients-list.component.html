@@ -2,13 +2,18 @@
 <div class="background">
     <div class="patients-list-container">
         <h2>Liste des patients admis</h2>
-        <div class="filters">
-            <button (click)="onShowPatientsIn()" class="in" [ngClass]="{'current' : show == 'in'}">Admis</button>
-            <button (click)="onShowPatientsOut()" class="out" [ngClass]="{'current' : show == 'out'}">Sortis</button>
+        <div class="filtersContain">
+            <div class="filters">
+                <button (click)="onShowPatientsIn()" class="in">Admis</button>
+                <button (click)="onShowPatientsOut()" class="current out">Sortis</button>
+            </div>
+            <div class="searchBar">
+                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Filtrer les résultats...">
+            </div>
         </div>
         <div>
-            <app-patients-in *ngIf="show == 'in'"></app-patients-in>
-            <app-patients-out *ngIf="show == 'out'"></app-patients-out>
+            <app-patients-in [searchText]="searchText" *ngIf="show == 'in'"></app-patients-in>
+            <app-patients-out [searchText]="searchText" *ngIf="show == 'out'"></app-patients-out>
         </div>
     </div>
 <div class="image-container"></div>
