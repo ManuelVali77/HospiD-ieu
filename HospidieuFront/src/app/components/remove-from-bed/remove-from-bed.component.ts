@@ -1,7 +1,6 @@
 import { Component, Inject, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PatientAndBed } from 'src/app/models/patient-and-bed.model';
-import { Patient } from 'src/app/models/patient.model';
 import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
@@ -26,9 +25,9 @@ export class RemoveFromBedComponent {
   }
 
   onConfirm() : void {
-    this.patientService.dismissPatient(this.patient).subscribe(() => console.log("Envoyé"));
+    this.patientService.dismissPatient(this.patient).subscribe(() => 
+    window.location.reload());
     this.dialogRef.close();
-    window.location.reload();
   }
 
   onCancel() : void {

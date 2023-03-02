@@ -33,15 +33,6 @@ export class PatientDetailComponent implements OnInit {
       this.patientService.getMonitoringByPatientId(this.patientId).subscribe((data: Information[]) => { this.monitoring = data});
   }
 
-  // // To close the modal if the user clicks outside it (not working) :
-  // ngAfterViewInit() : void {
-  //   document.onclick = (args : any) : void => {
-  //     if(args.target.tagName === 'BODY') {
-  //       this.modalDialog?.close();
-  //     }
-  //   }
-  // }
-
   onAddComment() : void {
     this.dialogConfig.id = "addComment";
     this.dialogConfig.data = {
