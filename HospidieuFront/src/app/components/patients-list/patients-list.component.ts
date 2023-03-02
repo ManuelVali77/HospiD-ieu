@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-patients-list',
@@ -7,14 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientsListComponent {
 
-  show : string = 'in';
+  show !: string;
+
+  constructor(
+    private route : ActivatedRoute,
+    private router : Router
+  ) {}
+
+  ngOnInit() : void {
+    this.show = this.route.snapshot.params['param'];
+  }
+
 
   onShowPatientsIn() : void {
     this.show = 'in';
+    this.router.navigateByUrl("patientsList/" + this.show);
   }
 
   onShowPatientsOut() : void {
     this.show = 'out';
+    this.router.navigateByUrl("patientsList/" + this.show);
   }
 
 }

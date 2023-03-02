@@ -34,9 +34,9 @@ public class InformationConvert {
 		
 		User user = monitoring.getUser();
 		if (user != null) {			
-		information.setIdUser(user.getIdUser());
-		information.setUserFirstName(user.getFirstName());
-		information.setUserName(user.getName());
+			information.setIdUser(user.getIdUser());
+			information.setUserFirstName(user.getFirstName());
+			information.setUserName(user.getName());
 		}
 
 		return information;

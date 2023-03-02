@@ -69,11 +69,12 @@ public class UserServiceImpl implements UserService {
 
 		switch (userDto.getRole()) {
 		case ("ROLE_ADMIN"):
-			role = roleRepository.findByRoleName(userDto.getRole());
-			roles.add(role);
+
 			role = roleRepository.findByRoleName("ROLE_INFIRMIER");
 			roles.add(role);
 			role = roleRepository.findByRoleName("ROLE_SECRETAIRE");
+			roles.add(role);
+			role = roleRepository.findByRoleName(userDto.getRole());
 			roles.add(role);
 			break;
 		case ("ROLE_INFIRMIER"):

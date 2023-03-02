@@ -39,18 +39,18 @@ export class PatientService {
     return this.http.post<Monitoring>(`${this.baseUrl}comment/save`, monitoring);
   }
 
-    getPatientInBedById(id : number) : Observable<PatientAndBed>{
-      return this.http.get<PatientAndBed>(`${this.baseUrl}patient/${id}`);
-    }
+  getPatientInBedById(id : number) : Observable<PatientAndBed>{
+    return this.http.get<PatientAndBed>(`${this.baseUrl}patient/${id}`);
+  }
 
-    getMonitoringByPatientId(id : number) : Observable<Information[]>{
-      return this.http.get<Information[]>(`${this.baseUrl}patient/${id}/history`);
-    }
+  getMonitoringByPatientId(id : number) : Observable<Information[]>{
+    return this.http.get<Information[]>(`${this.baseUrl}patient/${id}/history`);
+  }
 
 
-    getPatient(id : number): Observable<Patient>{
-      return this.http.get<Patient>(`${this.baseUrl}editPatient/${id}`);
-    }
+  getPatient(id : number): Observable<Patient>{
+    return this.http.get<Patient>(`${this.baseUrl}editPatient/${id}`);
+  }
 
   getEmptyBeds() : Observable<Bed[]> {
     return this.http.get<Bed[]>(`${this.baseUrl}admission`)

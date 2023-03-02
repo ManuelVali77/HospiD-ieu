@@ -34,12 +34,17 @@
                     .inputAjoutP {
                         display: flex;
                         flex-direction: column;
-                        gap: .5em;
+                        position: relative;
                         img {
                             width: 20px;
                         }
                         input {
                             width: 170px;
+                        }
+                        small {
+                            position: absolute;
+                            top: 65px;
+                            font-size: 11px;
                         }
                     }
                 }
@@ -61,6 +66,7 @@
                         background-size: 200% 100%;
                         background-position: 100% 0;
                         transition: background-position .5s;
+                        margin-top: 1em;
                         &:hover {
                             background-position: 0 0;
                         }
