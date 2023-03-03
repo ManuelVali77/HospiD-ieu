@@ -73,3 +73,19 @@
         }
     }
 }
+
+@media screen and (max-width: 500px) {
+    .addContain .formContain form {   
+        min-height: 65%;
+        min-width: 95%;
+        padding: .5em;
+        gap: 1em;
+        justify-content: left;
+        .inputContain {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+    }
+
+}

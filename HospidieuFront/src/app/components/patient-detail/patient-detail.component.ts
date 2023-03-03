@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dial
 import { ActivatedRoute, Router } from '@angular/router';
 import { Information } from 'src/app/models/information.model';
 import { PatientAndBed } from 'src/app/models/patient-and-bed.model';
+import { AuthService } from 'src/app/service/auth.service';
 import { PatientService } from 'src/app/services/patient.service';
 import { AddCommentComponent } from '../add-comment/add-comment.component';
 import { RemoveFromBedComponent } from '../remove-from-bed/remove-from-bed.component';
@@ -18,12 +19,15 @@ export class PatientDetailComponent implements OnInit {
   patientId !: number;
   monitoring !: Information[];
 
+  isInfirmier!: boolean;
+  isSecretaire!: boolean;
+
   // Modal component :
   dialogConfig = new MatDialogConfig();
   modalComment : MatDialogRef<AddCommentComponent, any> | undefined;
   modalOuting : MatDialogRef<RemoveFromBedComponent, any> | undefined;
 
-  constructor(private patientService : PatientService, private route : ActivatedRoute, private router : Router, private matDialog : MatDialog) {}
+  constructor(private patientService : PatientService, private route : ActivatedRoute, private router : Router, private matDialog : MatDialog, private authService: AuthService) {}
 
   ngOnInit() : void {
     this.patientId = this.route.snapshot.params['id'];
@@ -31,6 +35,9 @@ export class PatientDetailComponent implements OnInit {
         this.patient = data;
       })
       this.patientService.getMonitoringByPatientId(this.patientId).subscribe((data: Information[]) => { this.monitoring = data});
+
+    this.isInfirmier = this.authService.checkInfirmier(sessionStorage.getItem('roles'));
+    this.isSecretaire = this.authService.checkSecretaire(sessionStorage.getItem('roles'));
   }
 
   onAddComment() : void {

@@ -55,3 +55,22 @@ th, tr {
 td {
     padding: 5px 10px;
 }
+
+@media screen and (max-width: 500px) {
+    .image-container{
+        display: none;
+    }
+
+    .patients-list-container .searchBar {
+        width: 50%;
+    }
+
+    table {
+        thead {
+            font-size: 60%;
+        }
+        tbody{
+            font-size: 60%;
+        }
+    } 
+}

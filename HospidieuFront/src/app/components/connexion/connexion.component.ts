@@ -38,8 +38,10 @@ export class ConnexionComponent implements OnInit {
     this.submitted = true;
     // stop here if form is invalid
     if (this.loginForm.invalid) {
-      return;
-  }
+        this.loginForm.markAllAsTouched();
+        return;
+    } 
+    
     this.authService
       .login(this.loginForm.value.mail, this.loginForm.value.password)
       .subscribe(

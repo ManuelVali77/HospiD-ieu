@@ -69,3 +69,11 @@
         }
     }
 }
+
+@media screen and (max-width: 500px) {
+    .connectContain .formContain form {
+        width: 95%;
+        height: 50%;
+    }
+
+}
