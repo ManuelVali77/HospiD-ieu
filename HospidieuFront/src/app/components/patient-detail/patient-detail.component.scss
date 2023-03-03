@@ -11,7 +11,7 @@
     padding-top: 2em;
     .detailPatient {
         padding-left: 2em;
-        flex: 1;
+        width: 35%;
         .blocPatient {
             background-color: rgba($colorBaseBlue, 0.90);
             border-radius: 10px;
@@ -106,7 +106,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        flex:2;
+        width: 65%;
         gap: .5em;
         padding-bottom: 1em;
         h2 {
@@ -149,6 +149,18 @@
             .infirmierInfo {
                 font-style: italic;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .detailContain {
+        flex-direction: column;
+        gap: 1em;
+        .detailPatient{
+            padding-left: 0;
+            display: flex;
+            justify-content: center;
         }
     }
 }

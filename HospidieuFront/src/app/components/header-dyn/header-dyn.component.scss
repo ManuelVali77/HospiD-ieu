@@ -327,3 +327,34 @@
         font-size: 10px;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .headerDynAdmin{
+        .containLeftNav {
+            width: 30%;
+            display: flex;
+            align-items: center;
+             img {
+                width: 60%;
+            }
+        }
+        .listNavAdmin{
+            width: 70%;
+            .liParentAdmin {
+                font-size: 12px;
+            }
+        .liParentPatient {
+            font-size: 12px;
+        }
+        .liLogout {
+            img {
+                width: 20px;
+            }
+        }
+        } 
+        .roleInfo {
+            font-size: 8px;
+        }
+    }
+}
+

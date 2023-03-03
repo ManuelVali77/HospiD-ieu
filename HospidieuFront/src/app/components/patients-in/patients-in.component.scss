@@ -81,3 +81,11 @@ td {
         100% { background-position: 0 0; }
     }
 }
+
+@media screen and (max-width: 500px) {
+    table{
+        font-size: 10px;
+    }
+    
+
+}

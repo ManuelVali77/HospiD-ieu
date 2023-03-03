@@ -73,3 +73,24 @@
             }
         }
     }
+
+    @media screen and (max-width: 500px) {
+        .ajoutPContain .formContain{
+            margin-top: 3em;
+            form {   
+                min-height: 100%;
+                min-width: 95%;
+                padding: .5em;
+                gap: 1em;
+                justify-content: left;
+                .inputContain {
+                    flex-direction: column;
+                    gap: 10px;
+                    input {
+                        width: 100%!important;
+                    }
+                }
+        
+            }
+        }
+    }
