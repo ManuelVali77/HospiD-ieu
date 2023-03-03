@@ -342,9 +342,15 @@
             width: 70%;
             .liParentAdmin {
                 font-size: 12px;
+                .sousAdmin {
+                    width: 20.8%;
+                }
             }
         .liParentPatient {
             font-size: 12px;
+            .sousPatient {
+                width: 20.8%;
+            }
         }
         .liLogout {
             img {
