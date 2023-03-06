@@ -19,7 +19,7 @@ public class CustomUserBean implements UserDetails {
 	@JsonIgnore
 	private String password;
 
-	public Collection<? extends GrantedAuthority> authorities;
+	private Collection<? extends GrantedAuthority> authorities;
 
 	CustomUserBean(Integer id, String userName, String email, String password,
 			Collection<? extends GrantedAuthority> authorities) {
@@ -82,8 +82,8 @@ public class CustomUserBean implements UserDetails {
 
 	@Override
 	public boolean equals(Object rhs) {
-		if (rhs instanceof CustomUserBean) {
-			return userName.equals(((CustomUserBean) rhs).userName);
+		if (rhs instanceof CustomUserBean customUserBean) {
+			return userName.equals(customUserBean.userName);
 		}
 		return false;
 	}
