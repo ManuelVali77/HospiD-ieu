@@ -9,23 +9,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simplon.hospidieuBack.model.Bed;
 import com.simplon.hospidieuBack.model.InformationDto;
-import com.simplon.hospidieuBack.model.Monitoring;
 import com.simplon.hospidieuBack.model.MonitoringDto;
-import com.simplon.hospidieuBack.model.Bed;
 import com.simplon.hospidieuBack.model.Patient;
 import com.simplon.hospidieuBack.model.PatientInBedDto;
-import com.simplon.hospidieuBack.services.AddCommentService;
-import com.simplon.hospidieuBack.services.PatientConvert;
-import com.simplon.hospidieuBack.services.PatientListService;
-import com.simplon.hospidieuBack.services.AddPatientService;
-import com.simplon.hospidieuBack.services.AdmissionService;
-import com.simplon.hospidieuBack.services.InformationConvert;
+import com.simplon.hospidieuBack.service.AddCommentService;
+import com.simplon.hospidieuBack.service.AddPatientService;
+import com.simplon.hospidieuBack.service.AdmissionService;
+import com.simplon.hospidieuBack.service.PatientListService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -38,9 +32,6 @@ public class PatientController {
 	private AddCommentService addCommentService;
 
 	@Autowired
-	private PatientConvert patientConvert;
-
-	@Autowired
 	private AddPatientService addPatientService;
 
 	@Autowired
@@ -48,8 +39,7 @@ public class PatientController {
 
 	@GetMapping("patientsList/in")
 	public List<PatientInBedDto> getAllPatientsInBeds() {
-		List<Bed> bedsWithPatients = this.patientListService.getBedsWithPatients();
-		return this.patientConvert.convertDoToDtoList(bedsWithPatients);
+		return this.patientListService.getBedsWithPatients();
 	}
 
 	@GetMapping("patientsList/out")

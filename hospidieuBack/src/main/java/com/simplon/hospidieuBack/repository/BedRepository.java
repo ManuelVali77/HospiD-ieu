@@ -11,6 +11,7 @@ import com.simplon.hospidieuBack.model.Patient;
 @Repository
 public interface BedRepository extends JpaRepository<Bed, Integer> {
 
+	List<Bed> findByPatientIsNotNull();
 	List<Bed> findByPatientIsNull();
 	Bed findBedsByIdBed(int idBed);
 	Bed findBedsByPatient(Patient patient);

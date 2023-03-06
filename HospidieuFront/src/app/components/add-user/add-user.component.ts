@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserDto } from 'src/app/models/userDto.model';
-import { UserService } from 'src/app/service/user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-add-user',

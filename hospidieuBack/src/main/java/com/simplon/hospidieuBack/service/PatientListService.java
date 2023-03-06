@@ -1,4 +1,4 @@
-package com.simplon.hospidieuBack.services;
+package com.simplon.hospidieuBack.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,9 +11,7 @@ import com.simplon.hospidieuBack.model.PatientInBedDto;
 
 public interface PatientListService {
 
-	List<Bed> getAllBeds();
-	List<Patient> getAllPatients();
-	List<Bed> getBedsWithPatients();
+	List<PatientInBedDto> getBedsWithPatients();
 	List<Patient> getInactivePatients();
 	Patient getPatient(int id);
 	List<InformationDto> getMonitoringByPatient(int idPatient);

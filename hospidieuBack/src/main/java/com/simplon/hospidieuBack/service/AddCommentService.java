@@ -1,4 +1,4 @@
-package com.simplon.hospidieuBack.services;
+package com.simplon.hospidieuBack.service;
 
 import com.simplon.hospidieuBack.model.MonitoringDto;
 

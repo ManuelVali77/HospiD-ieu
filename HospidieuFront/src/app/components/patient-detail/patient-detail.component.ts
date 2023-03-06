@@ -3,7 +3,7 @@ import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dial
 import { ActivatedRoute, Router } from '@angular/router';
 import { Information } from 'src/app/models/information.model';
 import { PatientAndBed } from 'src/app/models/patient-and-bed.model';
-import { AuthService } from 'src/app/service/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { PatientService } from 'src/app/services/patient.service';
 import { AddCommentComponent } from '../add-comment/add-comment.component';
 import { RemoveFromBedComponent } from '../remove-from-bed/remove-from-bed.component';
