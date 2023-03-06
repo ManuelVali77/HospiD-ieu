@@ -1,4 +1,4 @@
-package com.simplon.hospidieuBack.services;
+package com.simplon.hospidieuBack.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,5 @@
-package com.simplon.hospidieuBack.services;
+package com.simplon.hospidieuBack.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.simplon.hospidieuBack.model.Bed;
 import com.simplon.hospidieuBack.model.InformationDto;
 import com.simplon.hospidieuBack.model.Monitoring;
-import com.simplon.hospidieuBack.model.MonitoringDto;
 import com.simplon.hospidieuBack.model.Patient;
 import com.simplon.hospidieuBack.model.PatientInBedDto;
 import com.simplon.hospidieuBack.repository.BedRepository;
@@ -32,16 +30,6 @@ public class PatientListServiceImpl implements PatientListService {
 	
 	@Autowired 
 	private PatientConvert patientConv;
-
-	@Override
-	public List<Patient> getAllPatients() {
-		return this.patientRepo.findAll();
-	}
-
-	@Override
-	public List<Bed> getAllBeds() {
-		return this.bedRepo.findAll();
-	}
 	
 	@Override
 	public List<InformationDto> getMonitoringByPatient(int idPatient){
@@ -66,21 +54,15 @@ public class PatientListServiceImpl implements PatientListService {
 	}
 
 	@Override
-	public List<Bed> getBedsWithPatients() {
-		List<Bed> bedsList = getAllBeds();
-		List<Bed> bedsWithPatientsList = new ArrayList<Bed>();
-		for (Bed bed : bedsList) {
-			if (bed.getPatient() instanceof Patient) {
-				bedsWithPatientsList.add(bed);
-			}
-		}
-		return bedsWithPatientsList;
+	public List<PatientInBedDto> getBedsWithPatients() {
+		List<Bed> bedsWithPatients = bedRepo.findByPatientIsNotNull();
+		return this.patientConv.convertDoToDtoList(bedsWithPatients);
 	}
 
 	@Override
 	public List<Patient> getInactivePatients() {
-		List<Bed> bedWithPatientsList = getBedsWithPatients();
-		List<Patient> patientsList = getAllPatients();
+		List<Bed> bedWithPatientsList = bedRepo.findByPatientIsNotNull();
+		List<Patient> patientsList = patientRepo.findAll();
 		for (Bed bedWithPatient : bedWithPatientsList) {
 			patientsList.remove(bedWithPatient.getPatient());
 		}

@@ -1,4 +1,4 @@
-package com.simplon.hospidieuBack.services;
+package com.simplon.hospidieuBack.service;
 
 import java.util.Date;
 import java.util.List;

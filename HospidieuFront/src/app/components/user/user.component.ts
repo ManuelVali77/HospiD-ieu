@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Role } from 'src/app/models/role.model';
 import { User } from 'src/app/models/user.model';
-import {UserService} from '../../user.service';
-import { Pipe, PipeTransform } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({

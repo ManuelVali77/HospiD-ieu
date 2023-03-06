@@ -17,8 +17,8 @@ import { PatientDetailComponent } from './components/patient-detail/patient-deta
 import { AddCommentComponent } from './components/add-comment/add-comment.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { AuthInterceptor } from './service/auth.interceptor';
-import {MatInputModule} from '@angular/material/input'
+import { AuthInterceptor } from './services/auth.interceptor';
+import { MatInputModule } from '@angular/material/input'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditPatientComponent } from './components/edit-patient/edit-patient.component';
 import { AdmissionComponent } from './components/admission/admission.component';
