@@ -2,19 +2,20 @@
 
 .ajoutPContain{
     background-image: url('../../../assets/img/bgModifier.jpg');
-    height: 100vh;
+    min-height: 100vh;
     background-size: cover;
+    .overlay {
         .formContain {
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 100%;
+            min-height: 100%;
             justify-content: center;
             form {
                 display: flex;
                 flex-direction: column;
                 background-color: rgba($colorBaseFond, 0.90);
-                height: 500px;
+                min-height: 500px;
                 width: 500px;
                 padding: 1em 3em 1em 3em;
                 border-radius: 10px;
@@ -88,10 +89,11 @@
             }
         }
     }
+        
+    }
 
     @media screen and (max-width: 500px) {
-        .ajoutPContain .formContain{
-            margin-top: 3em;
+        .ajoutPContain .overlay .formContain{
             flex-direction: initial;
             form {   
                 min-height: 100%;
