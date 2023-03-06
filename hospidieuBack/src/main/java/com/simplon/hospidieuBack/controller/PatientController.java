@@ -1,5 +1,6 @@
 package com.simplon.hospidieuBack.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,7 +96,7 @@ public class PatientController {
 		catch (NumberFormatException ex) {
 			ex.printStackTrace();
 		}
-		return null;
+		return new ArrayList<>();
 		
 	}
 	

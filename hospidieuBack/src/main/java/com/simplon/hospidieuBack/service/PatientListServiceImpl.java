@@ -71,7 +71,6 @@ public class PatientListServiceImpl implements PatientListService {
 
 	@Override
 	public Patient getPatient(int id) {
-		Patient patient = patientRepo.findPatientsByIdPatient(id);
-		return patient;
+		return patientRepo.findPatientsByIdPatient(id);
 	}
 }

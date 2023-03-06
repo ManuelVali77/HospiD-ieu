@@ -16,6 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
 	private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationEntryPoint.class);
+
 	public void commence(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException authException) throws IOException, ServletException {
 		logger.error("Unauthorized access error : " + authException.getMessage());

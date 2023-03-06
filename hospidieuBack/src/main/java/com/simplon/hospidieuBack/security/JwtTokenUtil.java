@@ -40,15 +40,15 @@ public class JwtTokenUtil {
 				.parseClaimsJws(token);
 			return true;
 		}catch(UnsupportedJwtException exp) {
-			System.out.println("claimsJws argument does not represent Claims JWS" + exp.getMessage());
+			throw new UnsupportedJwtException("claimsJws argument does not represent Claims JWS" + exp.getMessage());
 		}catch(MalformedJwtException exp) {
-			System.out.println("claimsJws string is not a valid JWS" + exp.getMessage());
+			throw new MalformedJwtException("claimsJws string is not a valid JWS" + exp.getMessage());
 		}catch(SignatureException exp) {
-			System.out.println("claimsJws JWS signature validation failed" + exp.getMessage());
+			throw new SignatureException("claimsJws JWS signature validation failed" + exp.getMessage());
 		}catch(ExpiredJwtException exp) {
 			System.out.println("Claims has an expiration time before the method is invoked" + exp.getMessage());
 		}catch(IllegalArgumentException exp) {
-			System.out.println("claimsJws string is null or empty or only whitespace" + exp.getMessage());
+			throw new IllegalArgumentException("claimsJws string is null or empty or only whitespace" + exp.getMessage());
 		}
 		return false;
 	}
