@@ -2,14 +2,17 @@
 
 .ajoutPContain{
     background-image: url('../../../assets/img/ajoutBg.jpg');
-    height: 100vh;
+    min-height: 100vh;
     background-size: cover;
+    .overlay {
+        height: 100%;
         .formContain {
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 100%;
+            min-height: 100vh;
             justify-content: center;
+            padding-top: 80px;
             form {
                 display: flex;
                 flex-direction: column;
@@ -19,7 +22,6 @@
                 padding: 1em 3em 1em 3em;
                 border-radius: 10px;
                 justify-content: space-between;
-                margin-top: 5em;
                 gap: 1.2em;
                 h1 {
                     margin: 0;
@@ -72,6 +74,8 @@
                 }
             }
         }
+    }
+        
     }
 
     @media screen and (max-width: 500px) {
